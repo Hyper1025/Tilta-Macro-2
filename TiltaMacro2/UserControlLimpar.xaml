@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="TiltaMacro2.UserControlLimpar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TiltaMacro2"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" Height="255" Width="280">
+    <Grid>
+        <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect FadeIn, Duration=0:0:0.8}">
+            <Grid>
+                <Grid VerticalAlignment="Bottom" Margin="35,0,35,5" Height="240">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Label x:Name="Label1" Content="DESEJA RESTAURAR AS" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Opacity="0.5" FontSize="14"/>
+                        <Label x:Name="Label2" Content="CONFIGURAÇÕES DE FÁBRICA?" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Opacity="0.5" FontSize="14"/>
+                    </StackPanel>
+                </Grid>
+                <!--Botão salvar configs-->
+                <StackPanel x:Name="StackPanelFinal" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                    <Button x:Name="ButtonSim" Width="100" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,0" Content="SIM" Visibility="Visible" Background="#83AE9B" BorderBrush="#181818" Click="ButtonSim_OnClick"/>
+                    <Button x:Name="ButtonNao" Width="100" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10,0,0,0" Content="NÃO" Visibility="Visible" Background="#FFC34545" BorderBrush="#181818" Click="ButtonNao_OnClick" />
+                    <!--<materialDesign:PackIcon Kind="Floppy" Foreground="White" Opacity="0.8" Width="30" Height="30" Cursor="Hand"/>-->
+                </StackPanel>
+            </Grid>
+        </materialDesign:TransitioningContent>
+    </Grid>
+</UserControl>

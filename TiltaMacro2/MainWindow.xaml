@@ -1,0 +1,73 @@
+﻿<Window x:Class="TiltaMacro2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="TiltaMacro" Height="500" Width="350" 
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="Black">
+    <Grid>
+        <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect FadeIn, Duration=0:0:0.8}">
+            <Grid>
+
+                <!--Imagem de fundo-->
+                <Image Source="Assets/bgp.jpg"/>
+
+                <!--Retangulo gradiente-->
+                <Rectangle Height="280" VerticalAlignment="Top" MouseDown="DegradeTopo_OnMouseDown">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.3">
+                            <GradientStop Color="#FF972D2D"/>
+                            <GradientStop Color="#181818" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+
+                <!--Botão configuração-->
+                <Button x:Name="ButtonConfig" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.2" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,60,0" Click="ButtonConfig_OnClick">
+                    <materialDesign:PackIcon Kind="Settings"/>
+                </Button>
+
+                <!--Botão Home-->
+                <Button x:Name="ButtonHome" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.2" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,60,0" Click="ButtonHome_OnClick" Visibility="Hidden">
+                    <materialDesign:PackIcon Kind="Home"/>
+                </Button>
+
+                <!--Botão minimizar-->
+                <Button x:Name="ButtonMinimizar" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.2" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,30,0" Click="ButtonMinimizar_OnClick">
+                    <materialDesign:PackIcon Kind="WindowMinimize"/>
+                </Button>
+
+                <!--Botão fechar-->
+                <Button x:Name="ButtonFechar" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.2" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonFechar_OnClick">
+                    <materialDesign:PackIcon Kind="Power"/>
+                </Button>
+
+                <!--Logo do programa-->
+                <Image Source="Assets/TM2.png" Width="100" Height="100" VerticalAlignment="Top" Margin="20" Opacity="0.8"/>
+
+                <!--Retangulo para ser a base visual da grelha funcional-->
+                <Rectangle Width="280" Height="240" VerticalAlignment="Bottom" Margin="35,0,35,106" RadiusY="10" RadiusX="10" Fill="White" Opacity="0.15">
+                    <Rectangle.Effect>
+                        <DropShadowEffect BlurRadius="15" Direction="0" RenderingBias="Quality" ShadowDepth="1" Color="#FF972D2D"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+
+                <!--Para me facilitar criar as sub grelhas-->
+
+                <!--Grelha para funcional-->
+                <Grid x:Name="GridPrincipal" Width="280" Height="255" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="35,154,35,91"/>
+
+                <!--Link Canal Youtube-->
+                <StackPanel x:Name="StackPanelMainFinal" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10">
+                    <materialDesign:PackIcon Kind="Youtube" Foreground="White" Opacity="0.8" Width="30" Height="30" VerticalAlignment="Center" Margin="5" MouseDown="YouTubeIcon_OnMouseDown" Cursor="Hand"/>
+                    <materialDesign:PackIcon Kind="Discord" Foreground="White" Opacity="0.8" Width="30" Height="30" VerticalAlignment="Center" Margin="5" MouseDown="DiscordIcon_OnMouseDown" Cursor="Hand"/>
+                </StackPanel>
+            </Grid>
+        </materialDesign:TransitioningContent>
+    </Grid>
+</Window>
