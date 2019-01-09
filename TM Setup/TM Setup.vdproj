@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_16851A80DAC4CCA8EEC40A66F48E6FCC"
+        "OwnerKey" = "8:_CBE79CC6366146BBB880CD6A62E02DA1"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_447014ADE2AE4EC5B822D38E2BA1D168"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -27,13 +33,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_867C085B4C00C6CBBAD19A08EB801E4B"
-        "OwnerKey" = "8:_CBE79CC6366146BBB880CD6A62E02DA1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C4F0FE13EEF02CB47F3CA61ECCF4AF65"
+        "MsmKey" = "8:_86A459E0C3EDA7580C27E76FC4E2F2A7"
         "OwnerKey" = "8:_CBE79CC6366146BBB880CD6A62E02DA1"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -46,25 +46,25 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6092B568EBD06BBFAA09FC23D4FDFE79"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_CBE79CC6366146BBB880CD6A62E02DA1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C4F0FE13EEF02CB47F3CA61ECCF4AF65"
+        "OwnerKey" = "8:_86A459E0C3EDA7580C27E76FC4E2F2A7"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_867C085B4C00C6CBBAD19A08EB801E4B"
+        "OwnerKey" = "8:_16851A80DAC4CCA8EEC40A66F48E6FCC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_6092B568EBD06BBFAA09FC23D4FDFE79"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -85,6 +85,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -101,6 +109,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -130,6 +146,37 @@
         }
         "File"
         {
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_16851A80DAC4CCA8EEC40A66F48E6FCC"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:MaterialDesignColors, Version=1.0.0.14576, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_16851A80DAC4CCA8EEC40A66F48E6FCC"
+                    {
+                    "Name" = "8:MaterialDesignColors.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:MaterialDesignColors.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_C7FA06515E704670B561E9E123D14A63"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_447014ADE2AE4EC5B822D38E2BA1D168"
             {
             "SourcePath" = "8:..\\..\\..\\..\\Pictures\\Saved Pictures\\TiltaMacro\\App Icon.ico"
@@ -181,45 +228,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_867C085B4C00C6CBBAD19A08EB801E4B"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MaterialDesignColors, Version=1.0.0.14576, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_867C085B4C00C6CBBAD19A08EB801E4B"
-                    {
-                    "Name" = "8:MaterialDesignColors.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:MaterialDesignColors.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_C7FA06515E704670B561E9E123D14A63"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C4F0FE13EEF02CB47F3CA61ECCF4AF65"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_86A459E0C3EDA7580C27E76FC4E2F2A7"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:MaterialDesignThemes.Wpf, Version=2.5.0.1205, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_C4F0FE13EEF02CB47F3CA61ECCF4AF65"
+                    "_86A459E0C3EDA7580C27E76FC4E2F2A7"
                     {
                     "Name" = "8:MaterialDesignThemes.Wpf.dll"
                     "Attributes" = "3:512"
@@ -310,15 +326,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Tilta Macro 2"
-        "ProductCode" = "8:{10EB495A-2E17-4572-BAAD-70F3BD4943CA}"
-        "PackageCode" = "8:{629045B4-EF82-46FD-8F65-A5AF4CC5B00C}"
+        "ProductCode" = "8:{CDD2E62B-456E-414A-BB8D-B59172EDB33F}"
+        "PackageCode" = "8:{2D987D9A-DCA0-428F-A4B5-53E6BE1FE077}"
         "UpgradeCode" = "8:{7A008D63-1BDE-4F43-8DFD-3824B093DAD6}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.0.1"
         "Manufacturer" = "8:Hyper"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

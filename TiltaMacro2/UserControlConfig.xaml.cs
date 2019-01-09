@@ -40,6 +40,7 @@ namespace TiltaMacro2
             TextBoxTextoMacro.IsEnabled = false;
             ButtonSalvar.IsEnabled = false;
             CheckBoxAll.IsEnabled = false;
+            ButtonMais.IsEnabled = false;
             Settings.Default.Save();
 
             Global.GlobalGridPrincipal.Children.Clear();
@@ -56,6 +57,7 @@ namespace TiltaMacro2
                 TextBoxTextoMacro.IsEnabled = true;
                 ButtonSalvar.IsEnabled = true;
                 CheckBoxAll.IsEnabled = true;
+                ButtonMais.IsEnabled = true;
                 TextBoxTextoMacro.Focus();
             }
 
@@ -228,6 +230,13 @@ namespace TiltaMacro2
         {
             Global.GlobalGridPrincipal.Children.Clear();
             Global.GlobalGridPrincipal.Children.Add(new UserControlLimpar());
+        }
+
+        private void ButtonMais_OnClick(object sender, RoutedEventArgs e)
+        {
+            TextBoxTextoMacro.Text += "<nmsg>";
+            TextBoxTextoMacro.Focus();
+            TextBoxTextoMacro.SelectionStart = TextBoxTextoMacro.Text.Length;
         }
     }
 }

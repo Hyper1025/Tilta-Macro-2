@@ -10,20 +10,24 @@
              Unloaded="UserControlConfig_OnUnloaded">
     <Grid>
         <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect FadeIn, Duration=0:0:0.8}">
-        <Grid>
-            <Grid VerticalAlignment="Bottom" Margin="35,0,35,5" Height="240">
-                <Label x:Name="LabelTop" Content="CONFIGURANDO" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Foreground="White" Opacity="0.5" FontSize="18"/>
-                <StackPanel VerticalAlignment="Top" Margin="15 40">
+            <Grid>
+                <Grid VerticalAlignment="Bottom" Margin="35,0,35,5" Height="240">
+                    <Label x:Name="LabelTop" Content="CONFIGURANDO" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Foreground="White" Opacity="0.5" FontSize="18"/>
+                    <StackPanel VerticalAlignment="Top" Margin="0,40,0,0">
                         <TextBox x:Name="TextBoxTextoMacro" x:FieldModifier="internal" Margin="0,10" materialDesign:HintAssist.Hint="TEXTO DA MACRO" Foreground="White" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" CaretBrush="#FFC34545" SelectionBrush="#FFC34545" BorderBrush="#FFC34545" TextChanged="TextBoxTextoMacro_OnTextChanged" IsEnabled="False"/>
-                        <CheckBox x:Name="CheckBoxAll" Click="CheckBoxAll_OnClick" IsEnabled="False" Background="#FFC34545" BorderBrush="#FFC34545" Foreground="Gray">Enviar no ALL</CheckBox> 
-                    <Label x:Name="LabelF" Content="F_" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Foreground="White" Opacity="0.5" FontSize="50"/>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox x:Name="CheckBoxAll" Click="CheckBoxAll_OnClick" IsEnabled="False" Background="#FFC34545" BorderBrush="#FFC34545" Foreground="Gray">Enviar no ALL</CheckBox>
+                            <Button x:Name="ButtonMais" Content="+" Margin="75,0,0,0" IsEnabled="False" Click="ButtonMais_OnClick"/>
+                        </StackPanel>
+                        <Label x:Name="LabelF" Content="F_" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Foreground="White" Opacity="0.5" FontSize="50"/>
                     </StackPanel>
-            </Grid>
-            <!--Botão salvar configs-->
-            <StackPanel x:Name="StackPanelFinal" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-                <Button x:Name="ButtonLimparTudo" Width="100" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,0" Content="ZERAR" Visibility="Visible" Background="#FFC34545" BorderBrush="#181818" Click="ButtonLimparTudo_OnClick"/>
+
+                </Grid>
+                <!--Botão salvar configs-->
+                <StackPanel x:Name="StackPanelFinal" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                    <Button x:Name="ButtonLimparTudo" Width="100" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,0" Content="ZERAR" Visibility="Visible" Background="#FFC34545" BorderBrush="#181818" Click="ButtonLimparTudo_OnClick"/>
                     <Button x:Name="ButtonSalvar" Width="100" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10,0,0,0" Content="SALVAR" Visibility="Visible" Background="#83AE9B" BorderBrush="#181818" Click="ButtonSalvar_OnClick" IsEnabled="False"/>
-                <!--<materialDesign:PackIcon Kind="Floppy" Foreground="White" Opacity="0.8" Width="30" Height="30" Cursor="Hand"/>-->
+                    <!--<materialDesign:PackIcon Kind="Floppy" Foreground="White" Opacity="0.8" Width="30" Height="30" Cursor="Hand"/>-->
                 </StackPanel>
             </Grid>
         </materialDesign:TransitioningContent>

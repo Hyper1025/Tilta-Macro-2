@@ -28,6 +28,13 @@ namespace TiltaMacro2
         //  Função de execução da macro
         private static void ExecutarMacro(KeyPressedArgs teclaArgs)
         {
+            //  <nmsg> = {ENTER}{ENTER}/all 
+            //  Hit or miss<nmsg>
+            //  I guess they never miss, huh?<nmsg>
+            //  You got a boyfriend, I bet he doesn't kiss ya<nmsg>
+            //  He gon' find another girl and he won't miss ya<nmsg>
+            //  He gon' skrrt and hit the dab like Wiz Khalifa
+
             switch (teclaArgs.KeyPressed)
             {
                 case Key.F1:
@@ -37,7 +44,7 @@ namespace TiltaMacro2
                     {
                         System.Windows.Forms.SendKeys.SendWait("/all ");
                     }
-                    System.Windows.Forms.SendKeys.SendWait(Settings.Default.F1);
+                    System.Windows.Forms.SendKeys.SendWait(Settings.Default.F1.Replace("<nmsg>", "{ENTER}{ENTER}/all "));
                     System.Windows.Forms.SendKeys.SendWait("{ENTER}");
                     break;
 
@@ -48,7 +55,7 @@ namespace TiltaMacro2
                     {
                         System.Windows.Forms.SendKeys.SendWait("/all ");
                     }
-                    System.Windows.Forms.SendKeys.SendWait(Settings.Default.F2);
+                    System.Windows.Forms.SendKeys.SendWait(Settings.Default.F2.Replace("<nmsg>", "{ENTER}{ENTER}/all "));
                     System.Windows.Forms.SendKeys.SendWait("{ENTER}");
                     break;
 
@@ -59,7 +66,7 @@ namespace TiltaMacro2
                     {
                         System.Windows.Forms.SendKeys.SendWait("/all ");
                     }
-                    System.Windows.Forms.SendKeys.SendWait(Settings.Default.F3);
+                    System.Windows.Forms.SendKeys.SendWait(Settings.Default.F3.Replace("<nmsg>", "{ENTER}{ENTER}/all "));
                     System.Windows.Forms.SendKeys.SendWait("{ENTER}");
                     break;
 
@@ -70,7 +77,7 @@ namespace TiltaMacro2
                     {
                         System.Windows.Forms.SendKeys.SendWait("/all ");
                     }
-                    System.Windows.Forms.SendKeys.SendWait(Settings.Default.F4);
+                    System.Windows.Forms.SendKeys.SendWait(Settings.Default.F4.Replace("<nmsg>", "{ENTER}{ENTER}/all "));
                     System.Windows.Forms.SendKeys.SendWait("{ENTER}");
                     break;
 
@@ -81,7 +88,7 @@ namespace TiltaMacro2
                     {
                         System.Windows.Forms.SendKeys.SendWait("/all ");
                     }
-                    System.Windows.Forms.SendKeys.SendWait(Settings.Default.F5);
+                    System.Windows.Forms.SendKeys.SendWait(Settings.Default.F5.Replace("<nmsg>", "{ENTER}{ENTER}/all "));
                     System.Windows.Forms.SendKeys.SendWait("{ENTER}");
                     break;
 
@@ -92,7 +99,7 @@ namespace TiltaMacro2
                     {
                         System.Windows.Forms.SendKeys.SendWait("/all ");
                     }
-                    System.Windows.Forms.SendKeys.SendWait(Settings.Default.F6);
+                    System.Windows.Forms.SendKeys.SendWait(Settings.Default.F6.Replace("<nmsg>", "{ENTER}{ENTER}/all "));
                     System.Windows.Forms.SendKeys.SendWait("{ENTER}");
                     break;
                 case Key.F7:
@@ -102,7 +109,7 @@ namespace TiltaMacro2
                     {
                         System.Windows.Forms.SendKeys.SendWait("/all ");
                     }
-                    System.Windows.Forms.SendKeys.SendWait(Settings.Default.F7);
+                    System.Windows.Forms.SendKeys.SendWait(Settings.Default.F7.Replace("<nmsg>", "{ENTER}{ENTER}/all "));
                     System.Windows.Forms.SendKeys.SendWait("{ENTER}");
                     break;
 
@@ -113,7 +120,7 @@ namespace TiltaMacro2
                     {
                         System.Windows.Forms.SendKeys.SendWait("/all ");
                     }
-                    System.Windows.Forms.SendKeys.SendWait(Settings.Default.F8);
+                    System.Windows.Forms.SendKeys.SendWait(Settings.Default.F8.Replace("<nmsg>", "{ENTER}{ENTER}/all "));
                     System.Windows.Forms.SendKeys.SendWait("{ENTER}");
                     break;
 
@@ -124,7 +131,7 @@ namespace TiltaMacro2
                     {
                         System.Windows.Forms.SendKeys.SendWait("/all ");
                     }
-                    System.Windows.Forms.SendKeys.SendWait(Settings.Default.F9);
+                    System.Windows.Forms.SendKeys.SendWait(Settings.Default.F9.Replace("<nmsg>", "{ENTER}{ENTER}/all "));
                     System.Windows.Forms.SendKeys.SendWait("{ENTER}");
                     break;
 
@@ -135,7 +142,7 @@ namespace TiltaMacro2
                     {
                         System.Windows.Forms.SendKeys.SendWait("/all ");
                     }
-                    System.Windows.Forms.SendKeys.SendWait(Settings.Default.F10);
+                    System.Windows.Forms.SendKeys.SendWait(Settings.Default.F10.Replace("<nmsg>", "{ENTER}{ENTER}/all "));
                     System.Windows.Forms.SendKeys.SendWait("{ENTER}");
                     break;
                 case Key.F11:
@@ -145,7 +152,7 @@ namespace TiltaMacro2
                     {
                         System.Windows.Forms.SendKeys.SendWait("/all ");
                     }
-                    System.Windows.Forms.SendKeys.SendWait(Settings.Default.F11);
+                    System.Windows.Forms.SendKeys.SendWait(Settings.Default.F11.Replace("<nmsg>", "{ENTER}{ENTER}/all "));
                     System.Windows.Forms.SendKeys.SendWait("{ENTER}");
                     break;
                 case Key.F12:
@@ -155,7 +162,7 @@ namespace TiltaMacro2
                     {
                         System.Windows.Forms.SendKeys.SendWait("/all ");
                     }
-                    System.Windows.Forms.SendKeys.SendWait(Settings.Default.F12);
+                    System.Windows.Forms.SendKeys.SendWait(Settings.Default.F12.Replace("<nmsg>", "{ENTER}{ENTER}/all "));
                     System.Windows.Forms.SendKeys.SendWait("{ENTER}");
                     break;
             }
