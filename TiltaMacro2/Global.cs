@@ -8,7 +8,9 @@ namespace TiltaMacro2
         public static Grid GlobalGridPrincipal { get; set; }
         public static bool StatusConfigurando { get; set; } = false;
         public static Key EditandoKey { get; set; } = Key.None;
+        public static Key UltimaKey { get; set; } = Key.None;
         public static Button EngrenagemButton { get; set; }
         public static Button CasinhaButton { get; set; }
+        public static Button AtualizacaoButton { get; set; }
     }
 }

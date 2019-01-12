@@ -13,11 +13,12 @@ namespace TiltaMacro2
         public MainWindow()
         {
             InitializeComponent();
-            GridPrincipal.Children.Add(new UserControlRodando());
-
             Global.GlobalGridPrincipal = GridPrincipal;
             Global.CasinhaButton = ButtonHome;
             Global.EngrenagemButton = ButtonConfig;
+            Global.AtualizacaoButton = ButtonUpdate;
+
+            GridPrincipal.Children.Add(new UserControlRodando());
         }
 
         //  Mover 
@@ -71,6 +72,13 @@ namespace TiltaMacro2
 
             ButtonConfig.Visibility = Visibility.Visible;
             ButtonHome.Visibility = Visibility.Hidden;
+        }
+
+        private void ButtonUpdate_OnClick(object sender, RoutedEventArgs e)
+        {
+            ButtonUpdate.Visibility = Visibility.Hidden;
+            GridPrincipal.Children.Clear();
+            GridPrincipal.Children.Add(new UserControlUpdate());
         }
     }
 }

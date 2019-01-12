@@ -28,9 +28,15 @@
                 </Rectangle>
 
                 <!--Botão configuração-->
+                <Button x:Name="ButtonUpdate" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.2" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ButtonUpdate_OnClick">
+                    <materialDesign:PackIcon Kind="Download"/>
+                </Button>
+
+                <!--Botão configuração-->
                 <Button x:Name="ButtonConfig" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.2" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,60,0" Click="ButtonConfig_OnClick">
                     <materialDesign:PackIcon Kind="Settings"/>
                 </Button>
+                
 
                 <!--Botão Home-->
                 <Button x:Name="ButtonHome" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.2" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,60,0" Click="ButtonHome_OnClick" Visibility="Hidden">

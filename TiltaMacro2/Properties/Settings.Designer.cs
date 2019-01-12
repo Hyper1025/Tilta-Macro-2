@@ -310,5 +310,245 @@ namespace TiltaMacro2.Properties {
                 this["F12All"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string NumPad0 {
+            get {
+                return ((string)(this["NumPad0"]));
+            }
+            set {
+                this["NumPad0"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool NumPad0All {
+            get {
+                return ((bool)(this["NumPad0All"]));
+            }
+            set {
+                this["NumPad0All"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string NumPad1 {
+            get {
+                return ((string)(this["NumPad1"]));
+            }
+            set {
+                this["NumPad1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool NumPad1All {
+            get {
+                return ((bool)(this["NumPad1All"]));
+            }
+            set {
+                this["NumPad1All"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string NumPad2 {
+            get {
+                return ((string)(this["NumPad2"]));
+            }
+            set {
+                this["NumPad2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool NumPad2All {
+            get {
+                return ((bool)(this["NumPad2All"]));
+            }
+            set {
+                this["NumPad2All"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string NumPad3 {
+            get {
+                return ((string)(this["NumPad3"]));
+            }
+            set {
+                this["NumPad3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool NumPad3All {
+            get {
+                return ((bool)(this["NumPad3All"]));
+            }
+            set {
+                this["NumPad3All"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string NumPad4 {
+            get {
+                return ((string)(this["NumPad4"]));
+            }
+            set {
+                this["NumPad4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool NumPad4All {
+            get {
+                return ((bool)(this["NumPad4All"]));
+            }
+            set {
+                this["NumPad4All"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string NumPad5 {
+            get {
+                return ((string)(this["NumPad5"]));
+            }
+            set {
+                this["NumPad5"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool NumPad5All {
+            get {
+                return ((bool)(this["NumPad5All"]));
+            }
+            set {
+                this["NumPad5All"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string NumPad6 {
+            get {
+                return ((string)(this["NumPad6"]));
+            }
+            set {
+                this["NumPad6"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool NumPad6All {
+            get {
+                return ((bool)(this["NumPad6All"]));
+            }
+            set {
+                this["NumPad6All"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string NumPad7 {
+            get {
+                return ((string)(this["NumPad7"]));
+            }
+            set {
+                this["NumPad7"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool NumPad7All {
+            get {
+                return ((bool)(this["NumPad7All"]));
+            }
+            set {
+                this["NumPad7All"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string NumPad8 {
+            get {
+                return ((string)(this["NumPad8"]));
+            }
+            set {
+                this["NumPad8"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool NumPad8All {
+            get {
+                return ((bool)(this["NumPad8All"]));
+            }
+            set {
+                this["NumPad8All"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string NumPad9 {
+            get {
+                return ((string)(this["NumPad9"]));
+            }
+            set {
+                this["NumPad9"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool NumPad9All {
+            get {
+                return ((bool)(this["NumPad9All"]));
+            }
+            set {
+                this["NumPad9All"] = value;
+            }
+        }
     }
 }

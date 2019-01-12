@@ -1,0 +1,5 @@
+﻿Creditos:
+
+AutoUpdater.NET:
+O AutoUpdater.NET é uma biblioteca de classes que permite aos desenvolvedores do .NET adicionar facilmente a funcionalidade de atualização automática aos seus projetos clássicos de aplicativos de desktop. 
+Github do projeto: https://github.com/ravibpatel/AutoUpdater.NET

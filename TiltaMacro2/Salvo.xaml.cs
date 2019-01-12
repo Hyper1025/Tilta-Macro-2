@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Input;
 using System.Windows.Threading;
 
 namespace TiltaMacro2
@@ -23,6 +22,8 @@ namespace TiltaMacro2
             _timer = new DispatcherTimer {Interval = new TimeSpan(0, 0, 0, 0, 800)};
             _timer.Tick += TimerOnTick;
             _timer.Start();
+            Global.CasinhaButton.IsEnabled = false;
+            Global.CasinhaButton.Opacity = 0.05;
         }
 
         private void TimerOnTick(object sender, EventArgs e)
@@ -38,6 +39,8 @@ namespace TiltaMacro2
 
                 Global.EngrenagemButton.Visibility = Visibility.Visible;
                 Global.CasinhaButton.Visibility = Visibility.Hidden;
+                Global.CasinhaButton.IsEnabled = true;
+                Global.CasinhaButton.Opacity = 0.2;
 
                 _timer.Stop();
             }

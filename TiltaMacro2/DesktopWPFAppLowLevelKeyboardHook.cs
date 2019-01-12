@@ -7,9 +7,9 @@ namespace TiltaMacro2
 {
     public class LowLevelKeyboardListener
     {
-        private const int WH_KEYBOARD_LL = 13;
-        private const int WM_KEYDOWN = 0x0100;
-        private const int WM_SYSKEYDOWN = 0x0104;
+        private const int WhKeyboardLl = 13;
+        private const int WmKeydown = 0x0100;
+        private const int WmSyskeydown = 0x0104;
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern IntPtr SetWindowsHookEx(int idHook, LowLevelKeyboardProc lpfn, IntPtr hMod, uint dwThreadId);
@@ -29,7 +29,7 @@ namespace TiltaMacro2
         public event EventHandler<KeyPressedArgs> OnKeyPressed;
 
         private readonly LowLevelKeyboardProc _proc;
-        private IntPtr _hookID = IntPtr.Zero;
+        private IntPtr _hookId = IntPtr.Zero;
 
         public LowLevelKeyboardListener()
         {
@@ -38,12 +38,12 @@ namespace TiltaMacro2
 
         public void HookKeyboard()
         {
-            _hookID = SetHook(_proc);
+            _hookId = SetHook(_proc);
         }
 
         public void UnHookKeyboard()
         {
-            UnhookWindowsHookEx(_hookID);
+            UnhookWindowsHookEx(_hookId);
         }
 
         private IntPtr SetHook(LowLevelKeyboardProc proc)
@@ -51,26 +51,26 @@ namespace TiltaMacro2
             using (Process curProcess = Process.GetCurrentProcess())
             using (ProcessModule curModule = curProcess.MainModule)
             {
-                return SetWindowsHookEx(WH_KEYBOARD_LL, proc, GetModuleHandle(curModule.ModuleName), 0);
+                return SetWindowsHookEx(WhKeyboardLl, proc, GetModuleHandle(curModule.ModuleName), 0);
             }
         }
 
         private IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
-            if (nCode >= 0 && wParam == (IntPtr)WM_KEYDOWN || wParam == (IntPtr)WM_SYSKEYDOWN)
+            if (nCode >= 0 && wParam == (IntPtr)WmKeydown || wParam == (IntPtr)WmSyskeydown)
             {
                 int vkCode = Marshal.ReadInt32(lParam);
 
                 OnKeyPressed?.Invoke(this, new KeyPressedArgs(KeyInterop.KeyFromVirtualKey(vkCode)));
             }
 
-            return CallNextHookEx(_hookID, nCode, wParam, lParam);
+            return CallNextHookEx(_hookId, nCode, wParam, lParam);
         }
     }
 
     public class KeyPressedArgs : EventArgs
     {
-        public Key KeyPressed { get; private set; }
+        public Key KeyPressed { get; }
 
         public KeyPressedArgs(Key key)
         {

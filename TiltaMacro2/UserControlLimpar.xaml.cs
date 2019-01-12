@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using TiltaMacro2.Properties;
 
 namespace TiltaMacro2
@@ -19,7 +6,7 @@ namespace TiltaMacro2
     /// <summary>
     /// Interação lógica para UserControlLimpar.xam
     /// </summary>
-    public partial class UserControlLimpar : UserControl
+    public partial class UserControlLimpar
     {
         public UserControlLimpar()
         {
@@ -44,9 +31,6 @@ namespace TiltaMacro2
             Global.GlobalGridPrincipal.Children.Clear();
             Global.GlobalGridPrincipal.Children.Add(new Salvo());
             Global.StatusConfigurando = false;
-
-            Global.EngrenagemButton.Visibility = Visibility.Visible;
-            Global.CasinhaButton.Visibility = Visibility.Hidden;
         }
     }
 }
