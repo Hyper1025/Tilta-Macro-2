@@ -1,7 +1,7 @@
 
 # Boas Vindas Ao TiltaMacro 2 :fire:
 ### Use o botão abaixo para realizar o download
-[![Downloads](https://img.shields.io/github/downloads/Hyper1025/Tilta-Macro-2/latest/total.svg)](https://github.com/Hyper1025/Tilta-Macro-2/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/Hyper1025/Tilta-Macro-2/total.svg)](https://github.com/Hyper1025/Tilta-Macro-2/releases/latest)
 
 ### Venha para o nosso discord:
 [![Discord](https://discordapp.com/api/guilds/459227565996113930/widget.png)](https://discord.gg/desceproplay) Sempre é bom ter alguém para trocar uma idéia
