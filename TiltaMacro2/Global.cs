@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace TiltaMacro2
@@ -12,5 +13,6 @@ namespace TiltaMacro2
         public static Button EngrenagemButton { get; set; }
         public static Button CasinhaButton { get; set; }
         public static Button AtualizacaoButton { get; set; }
+        public static Random Rng { get; set; } = new Random();
     }
 }

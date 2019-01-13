@@ -40,6 +40,7 @@ namespace TiltaMacro2
             ButtonSalvar.IsEnabled = false;
             CheckBoxAll.IsEnabled = false;
             ButtonMais.IsEnabled = false;
+            ButtonDividir.IsEnabled = false;
             Settings.Default.Save();
 
             Global.GlobalGridPrincipal.Children.Clear();
@@ -59,6 +60,7 @@ namespace TiltaMacro2
                 ButtonSalvar.IsEnabled = true;
                 CheckBoxAll.IsEnabled = true;
                 ButtonMais.IsEnabled = true;
+                ButtonDividir.IsEnabled = true;
                 TextBoxTextoMacro.Focus();
                 TextBoxTextoMacro.SelectionStart = TextBoxTextoMacro.Text.Length;
 
@@ -337,6 +339,13 @@ namespace TiltaMacro2
         private void ButtonMais_OnClick(object sender, RoutedEventArgs e)
         {
             TextBoxTextoMacro.Text += "<nmsg>";
+            TextBoxTextoMacro.Focus();
+            TextBoxTextoMacro.SelectionStart = TextBoxTextoMacro.Text.Length;
+        }
+
+        private void ButtonDividir_OnClick(object sender, RoutedEventArgs e)
+        {
+            TextBoxTextoMacro.Text += "|";
             TextBoxTextoMacro.Focus();
             TextBoxTextoMacro.SelectionStart = TextBoxTextoMacro.Text.Length;
         }
