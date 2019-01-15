@@ -18,6 +18,9 @@ Sinta-se livre para ver o vídeo de apresentação do programa
 
  - Melhorias visuais
  - Possibilidade de enviar mensagens tanto no chat da equipe, quanto no chat global
+ - Mais de uma mensagem na mesma macro
+ - Macro aleatória, você cria uma macro com várias mensagens atrelada a uma tecla, nós sorteamos uma das opções, e á enviamos no chat para você
+ - Agora com auto updater
  - Agora conta com instalador
  - Melhorias de desempenho
  - Novo sistema de Keyboard-handler
