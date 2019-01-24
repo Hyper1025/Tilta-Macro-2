@@ -122,8 +122,8 @@ namespace TiltaMacro2
 
             if (fraseMacro.Contains("|"))
             {
-                string[] opcoes = fraseMacro.Split('|');
-                string selecionado = opcoes[Global.Rng.Next(0, opcoes.Length)];
+                var opcoes = fraseMacro.Split('|');
+                var selecionado = opcoes[Global.Rng.Next(0, opcoes.Length)];
 
                 fraseMacro = selecionado;
             }

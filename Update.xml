@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <item>
-    <version>1.0.3</version>
-    <url>https://github.com/Hyper1025/Tilta-Macro-2/releases/download/1.0.3/Tilta-Macro-2-V1.0.3.zip</url>
+    <version>1.0.3.1</version>
+    <url>https://github.com/Hyper1025/Tilta-Macro-2/releases/download/1.0.3.1/Tilta-Macro-2-V1.0.3.1.zip</url>
     <changelog>https://raw.githubusercontent.com/Hyper1025/Tilta-Macro-2/master/changelog.txt</changelog>
     <mandatory>false</mandatory>
 </item>

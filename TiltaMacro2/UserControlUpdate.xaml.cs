@@ -29,8 +29,8 @@ namespace TiltaMacro2
             {
                 if (args.IsUpdateAvailable)
                 {
-                    Label1.Content = "ATUALIZAÇÃO";
-                    Label1.Content = "ENCONTRADA";
+                    Label1.Content = $"V {args.CurrentVersion}";
+                    Label2.Content = "ENCONTRADA";
                     Icon.Kind = PackIconKind.FileFindOutline;
                     
                     if (args.Mandatory)

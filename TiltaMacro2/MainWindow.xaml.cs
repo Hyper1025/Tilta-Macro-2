@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Reflection;
+using System.Windows;
 using System.Windows.Input;
 using TiltaMacro2.Properties;
 
@@ -17,6 +18,8 @@ namespace TiltaMacro2
             Global.CasinhaButton = ButtonHome;
             Global.EngrenagemButton = ButtonConfig;
             Global.AtualizacaoButton = ButtonUpdate;
+
+            LabelVersion.Content = $"v {Assembly.GetEntryAssembly().GetName().Version}";
 
             GridPrincipal.Children.Add(new UserControlRodando());
         }
@@ -59,7 +62,7 @@ namespace TiltaMacro2
         //  Abrir Discord
         private void DiscordIcon_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://discordapp.com/invite/desceproplay");
+            System.Diagnostics.Process.Start("https://discord.gg/cAy4pqk");
         }
 
         //  Home
