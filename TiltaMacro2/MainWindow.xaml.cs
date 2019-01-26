@@ -18,10 +18,11 @@ namespace TiltaMacro2
             Global.CasinhaButton = ButtonHome;
             Global.EngrenagemButton = ButtonConfig;
             Global.AtualizacaoButton = ButtonUpdate;
+            Global.UltimoUserControl = new UserControlRodando();
 
             LabelVersion.Content = $"v {Assembly.GetEntryAssembly().GetName().Version}";
-
-            GridPrincipal.Children.Add(new UserControlRodando());
+            GridPrincipal.Children.Clear();
+            GridPrincipal.Children.Add(new UserControlUpdate());
         }
 
         //  Mover 

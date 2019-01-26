@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Threading;
 using AutoUpdaterDotNET;
 using MaterialDesignThemes.Wpf;
 using Application = System.Windows.Application;
@@ -16,29 +17,47 @@ namespace TiltaMacro2
             InitializeComponent();
         }
 
+        //  Ao carregar o UserControlUpdate
         private void UserControlUpdate_OnLoaded(object sender, RoutedEventArgs e)
         {
+            //  Reescrevemos o evento de checar update
             AutoUpdater.CheckForUpdateEvent += AutoUpdaterOnCheckForUpdateEvent;
 
+            //  Passamos o link do XML pra pegarmos as informações atualizadas
             AutoUpdater.Start("https://raw.githubusercontent.com/Hyper1025/Tilta-Macro-2/master/Update.xml");
+
+            //  Escondemos os botões do topo
+            Global.AtualizacaoButton.Visibility = Visibility.Hidden;
+            Global.EngrenagemButton.Visibility = Visibility.Hidden;
+            Global.CasinhaButton.Visibility = Visibility.Hidden;
         }
 
+        //  Reescrevemos o evento de checar update
         private void AutoUpdaterOnCheckForUpdateEvent(UpdateInfoEventArgs args)
         {
+            //  Verificamos se a resposta foi diferente de nula
             if (args != null)
             {
+                //  Caso seja uma resposta diferente de nula, proseguimos
+
+                //  Verificamos se existe uma atualização disponível
                 if (args.IsUpdateAvailable)
                 {
+                    //  Se sim
+
+                    //  Alteramos as label`s
                     Label1.Content = $"V {args.CurrentVersion}";
                     Label2.Content = "ENCONTRADA";
+                    //  Alteramos o icone do centro
                     Icon.Kind = PackIconKind.FileFindOutline;
                     
+                    //  Verificamos se é uma atualização obrigatória
                     if (args.Mandatory)
                     {
-                        //  Mandatory = True
-                        //  Atualização requerida
+                        //  Se for obrigatória, avisamos
                         MessageBox.Show("Atualização obrigatória encontrada, o download irá inciar assim que você clicar em OK, ou fechar essa mensagem.",
                             "Update obrigatório", MessageBoxButton.OK, MessageBoxImage.Information);
+                        //  Chamamos a atualização
                         Atualizar();
                     }
                     else
@@ -48,6 +67,7 @@ namespace TiltaMacro2
 
                     }
 
+                    //  Mostramos o StackPanel de Update
                     StackPanelUpdate.Visibility = Visibility.Visible;
                 }
                 else
@@ -56,7 +76,39 @@ namespace TiltaMacro2
                     Icon.Kind = PackIconKind.HandOkay;
                     Label1.Content = "PARABÉNS";
                     Label2.Content = "TUDO ATUALIZADO";
-                    StackPanelSemUpdate.Visibility = Visibility.Visible;
+                    
+                    // <removi isso no update 3.0.1.2
+                    //StackPanelSemUpdate.Visibility = Visibility.Visible;
+
+                    //  Criamos um timer
+                    //  Ele servirá para apresentarmos a janela de atualização por mais tempo
+                    var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
+                    timer.Tick += delegate
+                    {
+                        //  Isso vem depois do timer ser iniciado, claro kkkkk
+
+                        //  Pausamos o timer, para evitar um loop
+                        timer.Stop();
+
+                        //  Limpamos s grip principal
+                        Global.GlobalGridPrincipal.Children.Clear();
+                        //  Adicionamos um painel novo a grid
+                        Global.GlobalGridPrincipal.Children.Add(Global.UltimoUserControl);
+                        //  Mostramos novamente o botão de update
+                        Global.AtualizacaoButton.Visibility = Visibility.Visible;
+
+                        //  Isso é só uma verificação pra saber se devemos ou não mostrar o botão de engrenagem
+                        //  Ele é necessário caso não já não estejamos na tela de configuração
+                        //  Pois iremos voltar a ela, e não faz sentido termos o botão de ir pra config, se já estamos lá .-.
+                        if (!Global.UltimoUserControl.ToString().Contains("UserControlConfig")) 
+                        {
+                            Global.EngrenagemButton.Visibility = Visibility.Visible;
+                        }
+                        
+                        
+                    };
+                    //  Iniciamos o timer
+                    timer.Start();
                 }
             }
             else
@@ -67,19 +119,28 @@ namespace TiltaMacro2
 
         private void UserControlUpdate_OnUnloaded(object sender, RoutedEventArgs e)
         {
+            //  Ao descarregarmos esse painel, mostramos novamente o botão de update
             Global.AtualizacaoButton.Visibility = Visibility.Visible;
         }
 
+        //  Void de atualização
         private void Atualizar()
         {
+            //  Avisamos que o download está em execução
+            //  E escondemos a label 2
             Label1.Content = "BAIXANDO";
             Label2.Visibility = Visibility.Collapsed;
 
+            //  Mudamos o icone para o icone de download
             Icon.Kind = PackIconKind.FileDownloadOutline;
+
+            //  Escondemos o painel de update (o com as opções para aceitar ou não, o update...)
             StackPanelUpdate.Visibility = Visibility.Collapsed;
 
+            //  Tentamos baixar o update
             try
             {
+                //  Baixamos o update, e ao concluir, fecharmos o programa
                 if (AutoUpdater.DownloadUpdate())
                 {
                     Application.Current.Shutdown();
@@ -88,29 +149,42 @@ namespace TiltaMacro2
             catch (Exception exception)
             {
                 //  Erro ao realizar update
+
+                //  Mudamos o icone para o iconde de erro
                 Icon.Kind = PackIconKind.ErrorOutline;
+                //  Alteramos o texto da label 1
                 Label1.Content = "ERRO";
+                //  Esondemos a label 2
                 Label2.Visibility = Visibility.Collapsed;
-                MessageBox.Show(exception.ToString(), "ERRO", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                //  Informamos o erro
+                MessageBox.Show(exception.Message, exception.GetType().ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
+            //  Fecha o programa
             Application.Current.Shutdown();
         }
 
+        //  Botão ao não aceitar o update
         private void ButtonNao_OnClick(object sender, RoutedEventArgs e)
         {
+            //  Limpamos a grid
             Global.GlobalGridPrincipal.Children.Clear();
-            Global.GlobalGridPrincipal.Children.Add(new UserControlRodando());
+            //  Voltamos para onde o usuário estava
+            Global.GlobalGridPrincipal.Children.Add(Global.UltimoUserControl);
         }
 
+        //  Botão ao aceitar o update
         private void ButtonSim_OnClick(object sender, RoutedEventArgs e)
         {
+            //  Atualizamos
             Atualizar();
         }
 
-        private void ButtonSemUpdate_OnClick(object sender, RoutedEventArgs e)
-        {
-            Global.GlobalGridPrincipal.Children.Clear();
-            Global.GlobalGridPrincipal.Children.Add(new UserControlRodando());
-        }
+        //private void ButtonSemUpdate_OnClick(object sender, RoutedEventArgs e)
+        //{
+        //    Global.GlobalGridPrincipal.Children.Clear();
+        //    Global.GlobalGridPrincipal.Children.Add(new UserControlRodando());
+        //}
     }
 }

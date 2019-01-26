@@ -148,6 +148,9 @@ namespace TiltaMacro2
             _listener.OnKeyPressed += _listener_OnKeyPressed;
 
             _listener.HookKeyboard();
+            Global.UltimoUserControl = new UserControlRodando();
+
+            Global.EngrenagemButton.Visibility = Visibility.Visible;
         }
 
         private void UserControlRodando_OnUnloaded(object sender, RoutedEventArgs e)

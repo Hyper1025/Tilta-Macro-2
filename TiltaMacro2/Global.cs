@@ -14,5 +14,6 @@ namespace TiltaMacro2
         public static Button CasinhaButton { get; set; }
         public static Button AtualizacaoButton { get; set; }
         public static Random Rng { get; set; } = new Random();
+        public static UserControl UltimoUserControl { get; set; }
     }
 }

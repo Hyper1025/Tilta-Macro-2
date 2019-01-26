@@ -21,6 +21,9 @@ namespace TiltaMacro2
 
         private void UserControlConfig_OnLoaded(object sender, RoutedEventArgs e)
         {
+            Global.UltimoUserControl = new UserControlConfig();
+            Global.CasinhaButton.Visibility = Visibility.Visible;
+
             _listener = new LowLevelKeyboardListener();
             _listener.OnKeyPressed += _listener_OnKeyPressed;
 
@@ -244,6 +247,19 @@ namespace TiltaMacro2
                 case Key.NumPad9:
                     Settings.Default.NumPad9 = TextBoxTextoMacro.Text;
                     break;
+            }
+
+            if (TextBoxTextoMacro.Text.Contains("|"))
+            {
+                var opcoes = TextBoxTextoMacro.Text.Split('|');
+                LabelContador.Content = $"Frases: {opcoes.Length}";
+            }
+            else
+            {
+                if (TextBoxTextoMacro.Text.Length >= 1)
+                {
+                    LabelContador.Content = "Frase: 1";
+                }
             }
         }
 

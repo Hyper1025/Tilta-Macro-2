@@ -32,5 +32,10 @@ namespace TiltaMacro2
             Global.GlobalGridPrincipal.Children.Add(new Salvo());
             Global.StatusConfigurando = false;
         }
+
+        private void UserControlLimpar_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            Global.UltimoUserControl = new UserControlLimpar();
+        }
     }
 }
