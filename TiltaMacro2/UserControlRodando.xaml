@@ -11,11 +11,15 @@
     <Grid Width="280" Height="240" HorizontalAlignment="Center" VerticalAlignment="Center">
         <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect FadeIn, Duration=0:0:0.8}">
         <Grid>
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                <materialDesign:PackIcon Kind="CheckOutline" Width="100" Height="100" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Opacity="0.8"/>
-                <TextBlock Text="EXECUTANDO" FontSize="17" HorizontalAlignment="Center" Foreground="White" Opacity="0.8"/>
-            </StackPanel>
-        </Grid>
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Kind="CheckOutline" Width="100" Height="100" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Opacity="0.8"/>
+                    <TextBlock Text="EXECUTANDO" FontSize="17" HorizontalAlignment="Center" Foreground="White" Opacity="0.8"/>
+                </StackPanel>
+                <StackPanel x:Name="StackPanelLeagueStatus" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20" Visibility="Hidden">
+                    <materialDesign:PackIcon x:Name="IconLeagueStatus" Kind="AlphaL" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Opacity="0.8"/>
+                    <Label x:Name="LabelLeagueStatus" Content="Aguardando league..." HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Opacity="0.5"/>
+                </StackPanel>
+            </Grid>
         </materialDesign:TransitioningContent>
     </Grid>
 </UserControl>

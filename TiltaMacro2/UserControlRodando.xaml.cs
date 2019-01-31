@@ -1,5 +1,9 @@
-﻿using System.Windows;
+﻿using System;
+using System.Diagnostics;
+using System.Windows;
 using System.Windows.Input;
+using System.Windows.Threading;
+using MaterialDesignThemes.Wpf;
 using TiltaMacro2.Properties;
 
 namespace TiltaMacro2
@@ -33,6 +37,14 @@ namespace TiltaMacro2
             //  You got a boyfriend, I bet he doesn't kiss ya<nmsg>
             //  He gon' find another girl and he won't miss ya<nmsg>
             //  He gon' skrrt and hit the dab like Wiz Khalifa
+
+            if (Settings.Default.RLeague)
+            {
+                if (VerificarLeague() == false)
+                {
+                    return;
+                }
+            }
 
             switch (teclaArgs.KeyPressed)
             {
@@ -142,6 +154,7 @@ namespace TiltaMacro2
             System.Windows.Forms.SendKeys.SendWait("{ENTER}");
         }
 
+        //  Evento ao carregar o UserControlRodando_OnLoaded
         private void UserControlRodando_OnLoaded(object sender, RoutedEventArgs e)
         {
             _listener = new LowLevelKeyboardListener();
@@ -151,8 +164,65 @@ namespace TiltaMacro2
             Global.UltimoUserControl = new UserControlRodando();
 
             Global.EngrenagemButton.Visibility = Visibility.Visible;
+
+            //  Verifica se o league tá aberto
+            //  Passamos a função direta pra não ter o intervalo do timer, ao inicializar o UserControl
+            LeagueStatusUx();
+            //  Ativamos a função com o timer
+            TimerLeagueStatusUx();
         }
 
+        //  Verifica constantemente o status do league
+        private void TimerLeagueStatusUx()
+        {
+            var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(5) };
+            timer.Tick += delegate
+            {
+                LeagueStatusUx();
+            };
+            timer.Start();
+        }
+
+        //  Função verificar status league para a UX
+        private void LeagueStatusUx()
+        {
+            //  Verificamos se é pra executar as macros só com o league aberto
+            if (Settings.Default.RLeague)
+            {
+                StackPanelLeagueStatus.Visibility = Visibility.Visible;
+
+                //  Verificamos se o league está aberto
+                if (VerificarLeague())
+                {
+                    IconLeagueStatus.Kind = PackIconKind.AlphaLBox;
+                    LabelLeagueStatus.Content = "League rodando.";
+                }
+                else
+                {
+                    IconLeagueStatus.Kind = PackIconKind.AlphaL;
+                    LabelLeagueStatus.Content = "Aguardando league...";
+                }
+            }
+            else
+            {
+                StackPanelLeagueStatus.Visibility = Visibility.Hidden;
+            }
+        }
+
+        //  Verifica se o jogo está rodando
+        private static bool VerificarLeague()
+        {
+            //  Pegamos o processo
+            var processo = Process.GetProcessesByName("League Of Legends");
+
+            //  Verificamos se ele existe
+            var status = processo.Length != 0;
+
+            //  Retornamos o status
+            return status;
+        }
+
+        //  Deshoocka o teclado
         private void UserControlRodando_OnUnloaded(object sender, RoutedEventArgs e)
         {
             _listener.UnHookKeyboard();

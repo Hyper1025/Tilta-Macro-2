@@ -71,6 +71,7 @@
                 <!--Link Canal Youtube-->
                 <StackPanel x:Name="StackPanelMainFinal" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10">
                     <materialDesign:PackIcon Kind="Youtube" Foreground="White" Opacity="0.8" Width="30" Height="30" VerticalAlignment="Center" Margin="5" MouseDown="YouTubeIcon_OnMouseDown" Cursor="Hand"/>
+                    <materialDesign:PackIcon Kind="GithubCircle" Foreground="White" Opacity="0.8" Width="30" Height="30" VerticalAlignment="Center" Margin="5" MouseDown="GithubIcon_OnMouseDown" Cursor="Hand"/>
                     <materialDesign:PackIcon Kind="Discord" Foreground="White" Opacity="0.8" Width="30" Height="30" VerticalAlignment="Center" Margin="5" MouseDown="DiscordIcon_OnMouseDown" Cursor="Hand"/>
                 </StackPanel>
                 <Label x:Name="LabelVersion" Content="v 0.0.0.0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="White" Opacity="0.5" Margin="2"/>

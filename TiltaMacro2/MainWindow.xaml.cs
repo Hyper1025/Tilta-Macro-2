@@ -60,6 +60,12 @@ namespace TiltaMacro2
             System.Diagnostics.Process.Start("https://www.youtube.com/channel/UC0iyCfiJ9MUzJCUfbZdtrFA");
         }
 
+        //  Abrir Github
+        private void GithubIcon_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Hyper1025/Tilta-Macro-2");
+        }
+
         //  Abrir Discord
         private void DiscordIcon_OnMouseDown(object sender, MouseButtonEventArgs e)
         {

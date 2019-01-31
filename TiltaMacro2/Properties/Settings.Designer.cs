@@ -550,5 +550,17 @@ namespace TiltaMacro2.Properties {
                 this["NumPad9All"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool RLeague {
+            get {
+                return ((bool)(this["RLeague"]));
+            }
+            set {
+                this["RLeague"] = value;
+            }
+        }
     }
 }

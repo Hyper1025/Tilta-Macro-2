@@ -28,6 +28,8 @@ namespace TiltaMacro2
             _listener.OnKeyPressed += _listener_OnKeyPressed;
 
             _listener.HookKeyboard();
+
+            CheckBoxLeague.IsChecked = Settings.Default.RLeague;
         }
 
         private void UserControlConfig_OnUnloaded(object sender, RoutedEventArgs e)
@@ -364,6 +366,12 @@ namespace TiltaMacro2
             TextBoxTextoMacro.Text += "|";
             TextBoxTextoMacro.Focus();
             TextBoxTextoMacro.SelectionStart = TextBoxTextoMacro.Text.Length;
+        }
+
+        private void CheckBoxLeague_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (CheckBoxLeague.IsChecked != null) Settings.Default.RLeague = CheckBoxLeague.IsChecked.Value;
+            ButtonSalvar.IsEnabled = true;
         }
     }
 }

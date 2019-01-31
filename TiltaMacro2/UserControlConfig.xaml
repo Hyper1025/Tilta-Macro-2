@@ -18,10 +18,15 @@
                             <CheckBox x:Name="CheckBoxAll" Click="CheckBoxAll_OnClick" IsEnabled="False" Background="#FFC34545" BorderBrush="#FFC34545" Foreground="Gray">Enviar no ALL</CheckBox>
                             <Button x:Name="ButtonDividir" Content="/" Margin="30,0,0,0" IsEnabled="False" Background="#F2AB39" BorderBrush="#F2AB39" Width="40" Click="ButtonDividir_OnClick"/>
                             <Button x:Name="ButtonMais" Content="+" Margin="5,2,0,1" IsEnabled="False" Width="40" Click="ButtonMais_OnClick"/>
-
                         </StackPanel>
-                        <Label x:Name="LabelF" Content="..." HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0" Foreground="White" Opacity="0.5" FontSize="30"/>
-                        <Label x:Name="LabelContador" Content="Frase: 0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2" Foreground="White" Opacity="0.5"/>
+                        <StackPanel HorizontalAlignment="Left">
+                            <CheckBox x:Name="CheckBoxLeague" Click="CheckBoxLeague_OnClick" Background="#FFC34545" BorderBrush="#FFC34545" Foreground="Gray">Rodar ao abrir o league</CheckBox>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Label x:Name="LabelF" Content="..." VerticalAlignment="Center" Margin="0,0,10,0" Foreground="White" Opacity="0.5" FontSize="30"/>
+                            <Label x:Name="LabelContador" Content="Frase: 0" VerticalAlignment="Center" Margin="2" Foreground="White" Opacity="0.5"/>
+                        </StackPanel>
                     </StackPanel>
 
                 </Grid>
