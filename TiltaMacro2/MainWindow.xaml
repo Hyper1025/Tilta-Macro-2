@@ -10,6 +10,43 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         Background="Black">
+
+    <!--Animações-->
+    <Window.Resources>
+        <!--Abrir e fechar notificação-->
+        <Storyboard x:Key="OpenNotifica">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridNotifica">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="280"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="280"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+
+    <!--Gatilhos de evento-->
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonInfo">
+            <BeginStoryboard Storyboard="{StaticResource OpenNotifica}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCompartilha">
+            <BeginStoryboard Storyboard="{StaticResource OpenNotifica}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonYouTube">
+            <BeginStoryboard Storyboard="{StaticResource OpenNotifica}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonGithub">
+            <BeginStoryboard Storyboard="{StaticResource OpenNotifica}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonDiscord">
+            <BeginStoryboard Storyboard="{StaticResource OpenNotifica}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonPayPal">
+            <BeginStoryboard Storyboard="{StaticResource OpenNotifica}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
+
     <Grid>
         <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect FadeIn, Duration=0:0:0.8}">
             <Grid>
@@ -68,13 +105,40 @@
                 <!--Grelha para funcional-->
                 <Grid x:Name="GridPrincipal" Width="280" Height="255" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="35,154,35,91"/>
 
-                <!--Link Canal Youtube-->
-                <StackPanel x:Name="StackPanelMainFinal" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10">
-                    <materialDesign:PackIcon Kind="Youtube" Foreground="White" Opacity="0.8" Width="30" Height="30" VerticalAlignment="Center" Margin="5" MouseDown="YouTubeIcon_OnMouseDown" Cursor="Hand"/>
-                    <materialDesign:PackIcon Kind="GithubCircle" Foreground="White" Opacity="0.8" Width="30" Height="30" VerticalAlignment="Center" Margin="5" MouseDown="GithubIcon_OnMouseDown" Cursor="Hand"/>
-                    <materialDesign:PackIcon Kind="Discord" Foreground="White" Opacity="0.8" Width="30" Height="30" VerticalAlignment="Center" Margin="5" MouseDown="DiscordIcon_OnMouseDown" Cursor="Hand"/>
+                <!--Botões inferiores esquerda-->
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5">
+                    <Button x:Name="ButtonInfo" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonInfo_OnClick">
+                        <materialDesign:PackIcon Kind="InformationOutline"/>
+                    </Button>
+
+                    <Button x:Name="ButtonCompartilha" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonShare_OnClick">
+                        <materialDesign:PackIcon Kind="ShareVariant"/>
+                    </Button>
                 </StackPanel>
-                <Label x:Name="LabelVersion" Content="v 0.0.0.0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="White" Opacity="0.5" Margin="2"/>
+
+                <!--Botões inferiores centrais-->
+                <StackPanel x:Name="StackPanelMainFinal" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="5">
+                    <Button x:Name="ButtonYouTube" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonYouTube_OnClick">
+                        <materialDesign:PackIcon Kind="Youtube" />
+                    </Button>
+                    <Button x:Name="ButtonGithub" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonGithub_OnClick">
+                        <materialDesign:PackIcon Kind="GithubCircle" />
+                    </Button>
+                    <Button x:Name="ButtonDiscord" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonDiscord_OnClick">
+                        <materialDesign:PackIcon Kind="Discord" />
+                    </Button>
+                    <Button x:Name="ButtonPayPal" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonPayPal_OnClick">
+                        <materialDesign:PackIcon Kind="Paypal" />
+                    </Button>
+                </StackPanel>
+                <Label x:Name="LabelVersion" Content="v 0.0.0.0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="White" Opacity="0.5" Margin="10"/>
+
+                <Grid x:Name="GridNotifica" Height="60" Width="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,60,0,0" Background="Black">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0">
+                        <materialDesign:PackIcon x:Name="IconNotifica" Kind="CheckOutline" Width="30" Height="30" Foreground="White" Opacity="0.8" Margin="0,0,5,0"/>
+                        <Label x:Name="LabelNotifica" Content="Texto" Foreground="White"></Label>
+                    </StackPanel>
+                </Grid>
             </Grid>
         </materialDesign:TransitioningContent>
     </Grid>

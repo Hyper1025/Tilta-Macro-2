@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using System.Windows;
 using System.Windows.Input;
+using MaterialDesignThemes.Wpf;
 using TiltaMacro2.Properties;
 
 namespace TiltaMacro2
@@ -55,21 +56,51 @@ namespace TiltaMacro2
         }
 
         //  Abrir YouTube
-        private void YouTubeIcon_OnMouseDown(object sender, MouseButtonEventArgs e)
+        private void ButtonYouTube_OnClick(object sender, RoutedEventArgs e)
         {
+            IconNotifica.Kind = PackIconKind.Heart;
+            LabelNotifica.Content = "Aproveite, e se inscreva no canal";
             System.Diagnostics.Process.Start("https://www.youtube.com/channel/UC0iyCfiJ9MUzJCUfbZdtrFA");
         }
 
         //  Abrir Github
-        private void GithubIcon_OnMouseDown(object sender, MouseButtonEventArgs e)
+        private void ButtonGithub_OnClick(object sender, RoutedEventArgs e)
         {
+            IconNotifica.Kind = PackIconKind.GithubCircle;
+            LabelNotifica.Content = "Sim... somos open-source";
             System.Diagnostics.Process.Start("https://github.com/Hyper1025/Tilta-Macro-2");
         }
 
         //  Abrir Discord
-        private void DiscordIcon_OnMouseDown(object sender, MouseButtonEventArgs e)
+        private void ButtonDiscord_OnClick(object sender, RoutedEventArgs e)
         {
+            IconNotifica.Kind = PackIconKind.Discord;
+            LabelNotifica.Content = "Boas vindas a nossa comunidade";
             System.Diagnostics.Process.Start("https://discord.gg/cAy4pqk");
+        }
+
+        //  Botão compartilhar
+        private void ButtonShare_OnClick(object sender, RoutedEventArgs e)
+        {
+            IconNotifica.Kind = PackIconKind.ShareVariant;
+            LabelNotifica.Content = "Copiado para sua área de transferência";
+            Clipboard.SetText("http://bit.ly/TiltaMacroInvite");
+        }
+
+        //  Botão PayPal
+        private void ButtonPayPal_OnClick(object sender, RoutedEventArgs e)
+        {
+            IconNotifica.Kind = PackIconKind.Paypal;
+            LabelNotifica.Content = "Obrigado por cojitar uma doação";
+            System.Diagnostics.Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VVNYNKR2NA9U2&source=url");
+        }
+
+        //  Botão informação
+        private void ButtonInfo_OnClick(object sender, RoutedEventArgs e)
+        {
+            IconNotifica.Kind = PackIconKind.InformationVariant;
+            LabelNotifica.Content = "Abrindo informações no Gith";
+            System.Diagnostics.Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VVNYNKR2NA9U2&source=url");
         }
 
         //  Home
@@ -84,6 +115,7 @@ namespace TiltaMacro2
             ButtonHome.Visibility = Visibility.Hidden;
         }
 
+        //  Botão atualização
         private void ButtonUpdate_OnClick(object sender, RoutedEventArgs e)
         {
             ButtonUpdate.Visibility = Visibility.Hidden;
