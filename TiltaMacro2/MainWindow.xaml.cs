@@ -100,7 +100,7 @@ namespace TiltaMacro2
         {
             IconNotifica.Kind = PackIconKind.InformationVariant;
             LabelNotifica.Content = "Abrindo informações no Gith";
-            System.Diagnostics.Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VVNYNKR2NA9U2&source=url");
+            System.Diagnostics.Process.Start("https://github.com/Hyper1025/Tilta-Macro-2/blob/master/Info.md");
         }
 
         //  Home
