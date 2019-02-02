@@ -17,8 +17,12 @@
                 </Grid>
                 <!--Botão salvar configs-->
                 <StackPanel x:Name="StackPanelFinal" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-                    <Button x:Name="ButtonSim" Width="100" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,0" Content="SIM" Visibility="Visible" Background="#83AE9B" BorderBrush="#181818" Click="ButtonSim_OnClick"/>
-                    <Button x:Name="ButtonNao" Width="100" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10,0,0,0" Content="NÃO" Visibility="Visible" Background="#FFC34545" BorderBrush="#181818" Click="ButtonNao_OnClick" />
+                    <Button x:Name="ButtonSim" Width="100" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,0" Visibility="Visible" Background="#83AE9B" BorderBrush="#181818" Click="ButtonSim_OnClick">
+                        <materialDesign:PackIcon Kind="CheckOutline" Width="20" Height="20" HorizontalAlignment="Center"/>
+                    </Button>
+                    <Button x:Name="ButtonNao" Width="100" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10,0,0,0" Visibility="Visible" Background="#FFC34545" BorderBrush="#181818" Click="ButtonNao_OnClick">
+                        <materialDesign:PackIcon Kind="CloseOutline" Width="20" Height="20" HorizontalAlignment="Center"/>
+                    </Button>
                     <!--<materialDesign:PackIcon Kind="Floppy" Foreground="White" Opacity="0.8" Width="30" Height="30" Cursor="Hand"/>-->
                 </StackPanel>
             </Grid>

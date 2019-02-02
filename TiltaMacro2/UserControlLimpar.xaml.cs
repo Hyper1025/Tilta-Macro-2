@@ -17,7 +17,6 @@ namespace TiltaMacro2
         {
             Global.GlobalGridPrincipal.Children.Clear();
             Global.GlobalGridPrincipal.Children.Add(new UserControlConfig());
-            Global.StatusConfigurando = false;
 
             Global.EngrenagemButton.Visibility = Visibility.Hidden;
             Global.CasinhaButton.Visibility = Visibility.Visible;
@@ -28,9 +27,10 @@ namespace TiltaMacro2
             Settings.Default.Reset();
             Settings.Default.Save();
 
+            Global.Notificar2("Configurações redefinidas");
+
             Global.GlobalGridPrincipal.Children.Clear();
-            Global.GlobalGridPrincipal.Children.Add(new Salvo());
-            Global.StatusConfigurando = false;
+            Global.Salvo(false);
         }
 
         private void UserControlLimpar_OnLoaded(object sender, RoutedEventArgs e)

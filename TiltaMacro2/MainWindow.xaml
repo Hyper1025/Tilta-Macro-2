@@ -11,41 +11,28 @@
         WindowStyle="None"
         Background="Black">
 
-    <!--Animações-->
+    <!--Animações--><!--
     <Window.Resources>
-        <!--Abrir e fechar notificação-->
+        --><!--Abrir e fechar notificação-->
+        <!-- ReSharper disable once Xaml.RedundantResource --><!--
         <Storyboard x:Key="OpenNotifica">
+            --><!--Opacidade--><!--
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Opacity)" Storyboard.TargetName="GridNotifica">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.9"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3.0" Value="0.9"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            --><!--Movimentação--><!--
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridNotifica">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="280"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="280"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="{Binding ElementName=StackPanelNotifica, Path=Width, Mode=OneWay}"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3.0" Value="{Binding ElementName=StackPanelNotifica, Path=Width, Mode=OneWay}"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:3.5" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
-    </Window.Resources>
-
-    <!--Gatilhos de evento-->
-    <Window.Triggers>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonInfo">
-            <BeginStoryboard Storyboard="{StaticResource OpenNotifica}"/>
-        </EventTrigger>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCompartilha">
-            <BeginStoryboard Storyboard="{StaticResource OpenNotifica}"/>
-        </EventTrigger>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonYouTube">
-            <BeginStoryboard Storyboard="{StaticResource OpenNotifica}"/>
-        </EventTrigger>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonGithub">
-            <BeginStoryboard Storyboard="{StaticResource OpenNotifica}"/>
-        </EventTrigger>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonDiscord">
-            <BeginStoryboard Storyboard="{StaticResource OpenNotifica}"/>
-        </EventTrigger>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonPayPal">
-            <BeginStoryboard Storyboard="{StaticResource OpenNotifica}"/>
-        </EventTrigger>
-    </Window.Triggers>
-
+    </Window.Resources>-->
 
     <Grid>
         <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect FadeIn, Duration=0:0:0.8}">
@@ -65,25 +52,17 @@
                 </Rectangle>
 
                 <!--Botão configuração-->
-                <Button x:Name="ButtonUpdate" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.2" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ButtonUpdate_OnClick" Visibility="Hidden">
-                    <materialDesign:PackIcon Kind="Download"/>
-                </Button>
+                <Button x:Name="ButtonUpdate" Content="{materialDesign:PackIcon Download}" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.2" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ButtonUpdate_OnClick" Visibility="Hidden"/>
 
-                <!--Botão configuração-->
-                <Button x:Name="ButtonConfig" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.2" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,60,0" Click="ButtonConfig_OnClick" Visibility="Hidden">
-                    <materialDesign:PackIcon Kind="Settings"/>
-                </Button>
-                
+                    <!--Botão configuração-->
+                <Button x:Name="ButtonConfig" Content="{materialDesign:PackIcon Settings}" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.2" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,60,0" Click="ButtonConfig_OnClick" Visibility="Hidden"/>
 
-                <!--Botão Home-->
-                <Button x:Name="ButtonHome" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.2" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,60,0" Click="ButtonHome_OnClick" Visibility="Hidden">
-                    <materialDesign:PackIcon Kind="Home"/>
-                </Button>
+
+                    <!--Botão Home-->
+                <Button x:Name="ButtonHome" Content="{materialDesign:PackIcon Home}" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.2" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,60,0" Click="ButtonHome_OnClick" Visibility="Hidden"/>
 
                 <!--Botão minimizar-->
-                <Button x:Name="ButtonMinimizar" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.2" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,30,0" Click="ButtonMinimizar_OnClick">
-                    <materialDesign:PackIcon Kind="WindowMinimize"/>
-                </Button>
+                <Button x:Name="ButtonMinimizar" Content="{materialDesign:PackIcon WindowMinimize}" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.2" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,30,0" Click="ButtonMinimizar_OnClick"/>
 
                 <!--Botão fechar-->
                 <Button x:Name="ButtonFechar" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.2" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonFechar_OnClick">
@@ -107,36 +86,32 @@
 
                 <!--Botões inferiores esquerda-->
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5">
-                    <Button x:Name="ButtonInfo" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonInfo_OnClick">
-                        <materialDesign:PackIcon Kind="InformationOutline"/>
-                    </Button>
-
-                    <Button x:Name="ButtonCompartilha" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonShare_OnClick">
-                        <materialDesign:PackIcon Kind="ShareVariant"/>
-                    </Button>
+                    <Button x:Name="ButtonInfo" Content="{materialDesign:PackIcon InformationOutline}" ToolTip="Informações" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonInfo_OnClick"/>
+                    <Button x:Name="ButtonCompartilha" Content="{materialDesign:PackIcon ShareVariant}" ToolTip="Link de compartilhamento" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonShare_OnClick"/>
                 </StackPanel>
 
                 <!--Botões inferiores centrais-->
                 <StackPanel x:Name="StackPanelMainFinal" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="5">
-                    <Button x:Name="ButtonYouTube" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonYouTube_OnClick">
-                        <materialDesign:PackIcon Kind="Youtube" />
-                    </Button>
-                    <Button x:Name="ButtonGithub" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonGithub_OnClick">
-                        <materialDesign:PackIcon Kind="GithubCircle" />
-                    </Button>
-                    <Button x:Name="ButtonDiscord" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonDiscord_OnClick">
-                        <materialDesign:PackIcon Kind="Discord" />
-                    </Button>
-                    <Button x:Name="ButtonPayPal" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonPayPal_OnClick">
-                        <materialDesign:PackIcon Kind="Paypal" />
-                    </Button>
+                    <Button x:Name="ButtonYouTube" Content="{materialDesign:PackIcon Youtube}" ToolTip="YouTube" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonYouTube_OnClick"/>
+                    <Button x:Name="ButtonGithub" Content="{materialDesign:PackIcon GithubCircle}" ToolTip="GitHub" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonGithub_OnClick"/>
+                    <Button x:Name="ButtonDiscord" Content="{materialDesign:PackIcon Discord}" ToolTip="Discord" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonDiscord_OnClick"/>
+                    <Button x:Name="ButtonPayPal" Content="{materialDesign:PackIcon Paypal}" ToolTip="PayPal" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonPayPal_OnClick"/>
                 </StackPanel>
-                <Label x:Name="LabelVersion" Content="v 0.0.0.0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="White" Opacity="0.5" Margin="10"/>
 
-                <Grid x:Name="GridNotifica" Height="60" Width="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,60,0,0" Background="Black">
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0">
-                        <materialDesign:PackIcon x:Name="IconNotifica" Kind="CheckOutline" Width="30" Height="30" Foreground="White" Opacity="0.8" Margin="0,0,5,0"/>
-                        <Label x:Name="LabelNotifica" Content="Texto" Foreground="White"></Label>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5">
+                    <Button x:Name="ButtonBug" Content="{materialDesign:PackIcon Bug}" ToolTip="PayPal" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonBug_OnClick"/>
+                    <Label x:Name="LabelVersion" Content="v 0.0.0.0" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White" Opacity="0.5" />
+                </StackPanel>
+
+                <!--Barra notificação-->
+                <materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}" x:Name="NotificaInferior" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+                <Grid x:Name="GridNotifica" Height="60" Width="280" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="35,60,35,0" Background="Black" Opacity="0">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0">
+                        <StackPanel x:Name="StackPanelNotifica" Orientation="Horizontal">
+                            <materialDesign:PackIcon x:Name="IconNotifica" Kind="CheckOutline" Width="30" Height="30" Foreground="White" Opacity="0.8" Margin="0,0,5,0"/>
+                            <Label x:Name="LabelNotifica" Content="Texto" Margin="0,0,5,0" Foreground="White"></Label>
+                        </StackPanel>
                     </StackPanel>
                 </Grid>
             </Grid>

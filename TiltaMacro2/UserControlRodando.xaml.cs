@@ -38,10 +38,13 @@ namespace TiltaMacro2
             //  He gon' find another girl and he won't miss ya<nmsg>
             //  He gon' skrrt and hit the dab like Wiz Khalifa
 
+            //  Verificamos se a opção de rodar a macro só com o league aberto, está ativa
             if (Settings.Default.RLeague)
             {
+                //  Se sim, verificamos se o league está aberto
                 if (VerificarLeague() == false)
                 {
+                    //  Se o league não estiver aberto, retornamos da função
                     return;
                 }
             }
@@ -168,7 +171,8 @@ namespace TiltaMacro2
             //  Verifica se o league tá aberto
             //  Passamos a função direta pra não ter o intervalo do timer, ao inicializar o UserControl
             LeagueStatusUx();
-            //  Ativamos a função com o timer
+
+            //  É só um timer, pra ficar repetindo a função de cima...
             TimerLeagueStatusUx();
         }
 
@@ -194,13 +198,19 @@ namespace TiltaMacro2
                 //  Verificamos se o league está aberto
                 if (VerificarLeague())
                 {
+                    IconPrincipal.Kind = PackIconKind.CheckMultiple;
+                    LabelPrincipal.Content = "RODANDO";
+
                     IconLeagueStatus.Kind = PackIconKind.AlphaLBox;
-                    LabelLeagueStatus.Content = "League rodando.";
+                    LabelLeagueStatus.Content = "Partida iniciada";
                 }
                 else
                 {
+                    IconPrincipal.Kind = PackIconKind.Clock;
+                    LabelPrincipal.Content = "AGUARDANDO";
+
                     IconLeagueStatus.Kind = PackIconKind.AlphaL;
-                    LabelLeagueStatus.Content = "Aguardando league...";
+                    LabelLeagueStatus.Content = "Inicie uma partida para rodar";
                 }
             }
             else

@@ -8,23 +8,28 @@
              Loaded="UserControlConfig_OnLoaded"
              Unloaded="UserControlConfig_OnUnloaded">
     <Grid>
-        <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect FadeIn, Duration=0:0:0.8}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect FadeIn, Duration=0:0:0.8}" Grid.ColumnSpan="2">
             <Grid>
-                <Grid VerticalAlignment="Bottom" Margin="35,0,35,5" Height="240">
+                <Grid VerticalAlignment="Bottom" Margin="25,0,25,5" Height="240">
                     <Label x:Name="LabelTop" Content="CONFIGURANDO" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Foreground="White" Opacity="0.5" FontSize="18"/>
                     <StackPanel VerticalAlignment="Top" Margin="0,40,0,0">
-                        <TextBox x:Name="TextBoxTextoMacro" Margin="0,5" materialDesign:HintAssist.Hint="TEXTO DA MACRO" Foreground="White" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" CaretBrush="#FFC34545" SelectionBrush="#FFC34545" BorderBrush="#FFC34545" TextChanged="TextBoxTextoMacro_OnTextChanged" IsEnabled="False"/>
+                        <TextBox x:Name="TextBoxTextoMacro" ToolTip="Digite aqui a frase que será enviada no chat" Margin="0,5" materialDesign:HintAssist.Hint="TEXTO DA MACRO" Foreground="White" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" CaretBrush="#FFC34545" SelectionBrush="#FFC34545" BorderBrush="#FFC34545" TextChanged="TextBoxTextoMacro_OnTextChanged" IsEnabled="False"/>
                         <StackPanel Orientation="Horizontal" Height="35">
-                            <CheckBox x:Name="CheckBoxAll" Click="CheckBoxAll_OnClick" IsEnabled="False" Background="#FFC34545" BorderBrush="#FFC34545" Foreground="Gray">Enviar no ALL</CheckBox>
-                            <Button x:Name="ButtonDividir" Content="/" Margin="30,0,0,0" IsEnabled="False" Background="#F2AB39" BorderBrush="#F2AB39" Width="40" Click="ButtonDividir_OnClick"/>
-                            <Button x:Name="ButtonMais" Content="+" Margin="5,2,0,1" IsEnabled="False" Width="40" Click="ButtonMais_OnClick"/>
+                            <CheckBox x:Name="CheckBoxAll" Click="CheckBoxAll_OnClick" ToolTip="Define se a macro atual será enviada no all ou no chat local" IsEnabled="False" Background="#FFC34545" BorderBrush="#FFC34545" Foreground="Gray" Content="Enviar no ALL"/>
+                            <Button x:Name="ButtonDividir" Content="{materialDesign:PackIcon ArrowSplitVertical}" ToolTip="Criar nova macro, dentro dessa macro" Margin="30,0,0,0" IsEnabled="False" Background="#F2AB39" BorderBrush="#F2AB39" Width="50" Click="ButtonDividir_OnClick"/>
+                            <Button x:Name="ButtonMais" Content="{materialDesign:PackIcon CommentPlusOutline}" ToolTip="Nova linha" Margin="5,2,0,1" IsEnabled="False" Width="50" Click="ButtonMais_OnClick"/>
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Left">
-                            <CheckBox x:Name="CheckBoxLeague" Click="CheckBoxLeague_OnClick" Background="#FFC34545" BorderBrush="#FFC34545" Foreground="Gray">Rodar ao abrir o league</CheckBox>
+                            <CheckBox x:Name="CheckBoxLeague" Click="CheckBoxLeague_OnClick" ToolTip="Se selecionado, a macro só é ativada quando o jogo iniciar" Background="#FFC34545" BorderBrush="#FFC34545" Foreground="Gray" Content="Aguardar a partida"/>
                         </StackPanel>
 
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Label x:Name="LabelF" Content="..." VerticalAlignment="Center" Margin="0,0,10,0" Foreground="White" Opacity="0.5" FontSize="30"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
+                            <Label x:Name="LabelF" Content="..." VerticalAlignment="Center" Margin="0,0,15,0" Foreground="White" Opacity="0.5" FontSize="30" FontWeight="Bold"/>
+
                             <Label x:Name="LabelContador" Content="Frase: 0" VerticalAlignment="Center" Margin="2" Foreground="White" Opacity="0.5"/>
                         </StackPanel>
                     </StackPanel>
@@ -32,9 +37,9 @@
                 </Grid>
                 <!--Botão salvar configs-->
                 <StackPanel x:Name="StackPanelFinal" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-                    <Button x:Name="ButtonLimparTudo" Width="100" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,0" Content="ZERAR" Visibility="Visible" Background="#FFC34545" BorderBrush="#181818" Click="ButtonLimparTudo_OnClick"/>
-                    <Button x:Name="ButtonSalvar" Width="100" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10,0,0,0" Content="SALVAR" Visibility="Visible" Background="#83AE9B" BorderBrush="#181818" Click="ButtonSalvar_OnClick" IsEnabled="False"/>
-                    <!--<materialDesign:PackIcon Kind="Floppy" Foreground="White" Opacity="0.8" Width="30" Height="30" Cursor="Hand"/>-->
+                    <Button x:Name="Buttonreset" Content="{materialDesign:PackIcon Reload}" ToolTip="Retorna para o último save" Width="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,10,0" Visibility="Visible" BorderBrush="#181818" Click="Buttonreset_OnClick" IsEnabled="False"/>
+                    <Button x:Name="ButtonLimparTudo" Content="{materialDesign:PackIcon BackspaceOutline}" ToolTip="Resetar Tudo" Width="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,0" Visibility="Visible" Background="#FFC34545" BorderBrush="#181818" Click="ButtonLimparTudo_OnClick"/>
+                    <Button x:Name="ButtonSalvar" Content="{materialDesign:PackIcon ContentSave}" ToolTip="Salvar alterações" Width="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10,0,0,0" Visibility="Visible" Background="#83AE9B" BorderBrush="#181818" Click="ButtonSalvar_OnClick" IsEnabled="False"/>
                 </StackPanel>
             </Grid>
         </materialDesign:TransitioningContent>

@@ -46,10 +46,12 @@ namespace TiltaMacro2
             CheckBoxAll.IsEnabled = false;
             ButtonMais.IsEnabled = false;
             ButtonDividir.IsEnabled = false;
+            Buttonreset.IsEnabled = false;
             Settings.Default.Save();
 
             Global.GlobalGridPrincipal.Children.Clear();
-            Global.GlobalGridPrincipal.Children.Add(new Salvo());
+            //Global.GlobalGridPrincipal.Children.Add(new Salvo());
+            Global.Salvo(true);
         }
 
         private void _listener_OnKeyPressed(object sender, KeyPressedArgs e)
@@ -68,7 +70,6 @@ namespace TiltaMacro2
                 ButtonDividir.IsEnabled = true;
                 TextBoxTextoMacro.Focus();
                 TextBoxTextoMacro.SelectionStart = TextBoxTextoMacro.Text.Length;
-
             }
 
             switch (Global.EditandoKey)
@@ -174,6 +175,8 @@ namespace TiltaMacro2
         //  Serve para guardar provisóriamente nas configurações
         private void TextBoxTextoMacro_OnTextChanged(object sender, TextChangedEventArgs e)
         {
+            Buttonreset.IsEnabled = true;
+
             switch (Global.EditandoKey)
             {
                 case Key.F1:
@@ -261,6 +264,10 @@ namespace TiltaMacro2
                 if (TextBoxTextoMacro.Text.Length >= 1)
                 {
                     LabelContador.Content = "Frase: 1";
+                }
+                else
+                {
+                    LabelContador.Content = "Frase: 0";
                 }
             }
         }
@@ -372,6 +379,24 @@ namespace TiltaMacro2
         {
             if (CheckBoxLeague.IsChecked != null) Settings.Default.RLeague = CheckBoxLeague.IsChecked.Value;
             ButtonSalvar.IsEnabled = true;
+        }
+
+        private void Buttonreset_OnClick(object sender, RoutedEventArgs e)
+        {
+            Settings.Default.Reload();
+
+            LabelF.Content = "...";
+            Global.EditandoKey = Key.None;
+            TextBoxTextoMacro.IsEnabled = false;
+            TextBoxTextoMacro.Text = "";
+            ButtonSalvar.IsEnabled = false;
+            CheckBoxAll.IsEnabled = false;
+            ButtonMais.IsEnabled = false;
+            ButtonDividir.IsEnabled = false;
+            Buttonreset.IsEnabled = false;
+            Settings.Default.Save();
+            
+            Global.Notificar2("Retornado para o último save", "#73C2FB");
         }
     }
 }

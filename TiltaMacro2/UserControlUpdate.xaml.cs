@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Threading;
 using AutoUpdaterDotNET;
 using MaterialDesignThemes.Wpf;
 using Application = System.Windows.Application;
@@ -12,6 +11,8 @@ namespace TiltaMacro2
     /// </summary>
     public partial class UserControlUpdate
     {
+        internal string LinkNote;
+
         public UserControlUpdate()
         {
             InitializeComponent();
@@ -38,6 +39,10 @@ namespace TiltaMacro2
             //  Verificamos se a resposta foi diferente de nula
             if (args != null)
             {
+
+                Icon.Visibility = Visibility.Visible;
+                ProgressBar.Visibility = Visibility.Collapsed;
+
                 //  Caso seja uma resposta diferente de nula, proseguimos
 
                 //  Verificamos se existe uma atualização disponível
@@ -60,15 +65,11 @@ namespace TiltaMacro2
                         //  Chamamos a atualização
                         Atualizar();
                     }
-                    else
-                    {
-                        //  Mandatory = False
-                        //  Atualização opcional
-
-                    }
 
                     //  Mostramos o StackPanel de Update
                     StackPanelUpdate.Visibility = Visibility.Visible;
+                    //  Passamos o link para o botão
+                    LinkNote = args.ChangelogURL;
                 }
                 else
                 {
@@ -76,39 +77,29 @@ namespace TiltaMacro2
                     Icon.Kind = PackIconKind.HandOkay;
                     Label1.Content = "PARABÉNS";
                     Label2.Content = "TUDO ATUALIZADO";
-                    
+
+                    Global.Notificar2("Tudo está atualizado", "#555555");
+
                     // <removi isso no update 3.0.1.2
                     //StackPanelSemUpdate.Visibility = Visibility.Visible;
 
                     //  Criamos um timer
                     //  Ele servirá para apresentarmos a janela de atualização por mais tempo
-                    var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
-                    timer.Tick += delegate
+
+                    //  Limpamos s grip principal
+                    Global.GlobalGridPrincipal.Children.Clear();
+                    //  Adicionamos um painel novo a grid
+                    Global.GlobalGridPrincipal.Children.Add(Global.UltimoUserControl);
+                    //  Mostramos novamente o botão de update
+                    Global.AtualizacaoButton.Visibility = Visibility.Visible;
+
+                    //  Isso é só uma verificação pra saber se devemos ou não mostrar o botão de engrenagem
+                    //  Ele é necessário caso não já não estejamos na tela de configuração
+                    //  Pois iremos voltar a ela, e não faz sentido termos o botão de ir pra config, se já estamos lá .-.
+                    if (!Global.UltimoUserControl.ToString().Contains("UserControlConfig"))
                     {
-                        //  Isso vem depois do timer ser iniciado, claro kkkkk
-
-                        //  Pausamos o timer, para evitar um loop
-                        timer.Stop();
-
-                        //  Limpamos s grip principal
-                        Global.GlobalGridPrincipal.Children.Clear();
-                        //  Adicionamos um painel novo a grid
-                        Global.GlobalGridPrincipal.Children.Add(Global.UltimoUserControl);
-                        //  Mostramos novamente o botão de update
-                        Global.AtualizacaoButton.Visibility = Visibility.Visible;
-
-                        //  Isso é só uma verificação pra saber se devemos ou não mostrar o botão de engrenagem
-                        //  Ele é necessário caso não já não estejamos na tela de configuração
-                        //  Pois iremos voltar a ela, e não faz sentido termos o botão de ir pra config, se já estamos lá .-.
-                        if (!Global.UltimoUserControl.ToString().Contains("UserControlConfig")) 
-                        {
-                            Global.EngrenagemButton.Visibility = Visibility.Visible;
-                        }
-                        
-                        
-                    };
-                    //  Iniciamos o timer
-                    timer.Start();
+                        Global.EngrenagemButton.Visibility = Visibility.Visible;
+                    }
                 }
             }
             else
@@ -186,5 +177,13 @@ namespace TiltaMacro2
         //    Global.GlobalGridPrincipal.Children.Clear();
         //    Global.GlobalGridPrincipal.Children.Add(new UserControlRodando());
         //}
+
+
+        //  Botão changelog
+        private void ButtonUpdateNote_OnClick(object sender, RoutedEventArgs e)
+        {
+            Global.Notificar2("Notas de atualização", "#73C2FB");
+            System.Diagnostics.Process.Start(LinkNote);
+        }
     }
 }
