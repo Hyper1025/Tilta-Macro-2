@@ -1,4 +1,13 @@
 # Log de atualizações
+## 1.0.3.5
+-  Mudanças visuais
+- Você deve demorar menos na tela de update
+- Novo sistema de notificações, visa acelerar o programa, por assim dizer
+- Melhoria no código de todos botões
+- Novo botão de retornar ao último save
+- Novo botão para reportar bugs
+- Agora botões são mais vísuais
+- Corrigido pequeno erro, que ao digitar uma frase, e apaga-la por completo, faz com que o contador de frases se mantenha exibindo o número 1
 ## 1.0.3.4
  - Pequenas mudanças visuais
  - Adesão de botão que permite o compartilhamento do programa
