@@ -99,7 +99,7 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5">
-                    <Button x:Name="ButtonBug" Content="{materialDesign:PackIcon Bug}" ToolTip="PayPal" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonBug_OnClick"/>
+                    <Button x:Name="ButtonBug" Content="{materialDesign:PackIcon Bug}" ToolTip="Reportar bug" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonBug_OnClick"/>
                     <Label x:Name="LabelVersion" Content="v 0.0.0.0" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White" Opacity="0.5" />
                 </StackPanel>
 

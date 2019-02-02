@@ -116,7 +116,7 @@ namespace TiltaMacro2
         //  Botão reportar erro
         private void ButtonBug_OnClick(object sender, RoutedEventArgs e)
         {
-            Global.Notificar2("Abrindo informações no Gith");
+            Global.Notificar2("Abrindo report de bugs");
             System.Diagnostics.Process.Start("https://github.com/Hyper1025/Tilta-Macro-2/issues/new");
         }
 
