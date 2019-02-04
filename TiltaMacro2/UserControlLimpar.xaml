@@ -6,24 +6,76 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" Height="255" Width="280"
              Loaded="UserControlLimpar_OnLoaded">
+
+    <!--Grid base-->
     <Grid>
+
+        <!--Grid para levar animação de abertura-->
         <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect FadeIn, Duration=0:0:0.8}">
             <Grid>
-                <Grid VerticalAlignment="Bottom" Margin="35,0,35,5" Height="240">
-                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <Label x:Name="Label1" Content="DESEJA RESTAURAR AS" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Opacity="0.5" FontSize="14"/>
-                        <Label x:Name="Label2" Content="CONFIGURAÇÕES DE FÁBRICA?" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Opacity="0.5" FontSize="14"/>
+
+                <!--Grid conteúdo-->
+                <Grid VerticalAlignment="Bottom" 
+                        Margin="35,0,35,5" 
+                        Height="240">
+
+                    <!--Stackpanel Principal-->
+                    <StackPanel 
+                            VerticalAlignment="Center" 
+                            HorizontalAlignment="Center">
+
+                        <!--Label superior-->
+                        <Label x:Name="Label1" 
+                                Content="DESEJA RESTAURAR AS" 
+                                HorizontalAlignment="Center" 
+                                VerticalAlignment="Center" 
+                                Foreground="White" 
+                                Opacity="0.5" 
+                                FontSize="14"/>
+
+                        <!--Label Inferior-->
+                        <Label x:Name="Label2" 
+                               Content="CONFIGURAÇÕES DE FÁBRICA?" 
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Center" 
+                               Foreground="White" 
+                               Opacity="0.5" 
+                               FontSize="14"/>
                     </StackPanel>
                 </Grid>
-                <!--Botão salvar configs-->
-                <StackPanel x:Name="StackPanelFinal" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-                    <Button x:Name="ButtonSim" Width="100" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,0" Visibility="Visible" Background="#83AE9B" BorderBrush="#181818" Click="ButtonSim_OnClick">
-                        <materialDesign:PackIcon Kind="CheckOutline" Width="20" Height="20" HorizontalAlignment="Center"/>
-                    </Button>
-                    <Button x:Name="ButtonNao" Width="100" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10,0,0,0" Visibility="Visible" Background="#FFC34545" BorderBrush="#181818" Click="ButtonNao_OnClick">
-                        <materialDesign:PackIcon Kind="CloseOutline" Width="20" Height="20" HorizontalAlignment="Center"/>
-                    </Button>
-                    <!--<materialDesign:PackIcon Kind="Floppy" Foreground="White" Opacity="0.8" Width="30" Height="30" Cursor="Hand"/>-->
+
+                <!--StackPanel Opções-->
+                <StackPanel x:Name="StackPanelFinal" 
+                            Orientation="Horizontal"
+                            VerticalAlignment="Bottom" 
+                            HorizontalAlignment="Center">
+                    <!--Botão sim-->
+                    <Button x:Name="ButtonSim"
+                            ToolTip="Redefine as configurações"
+                            Content="{materialDesign:PackIcon CheckOutline}"
+                            Width="100" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Bottom" 
+                            Margin="0,0,0,0" 
+                            Visibility="Visible"
+                            Background="#83AE9B"
+                            BorderBrush="#181818" 
+                            Click="ButtonSim_OnClick"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth5"/>
+
+                    <Button x:Name="ButtonNao"
+                            ToolTip="Retorna para a tela de configuração"
+                            Content="{materialDesign:PackIcon CloseOutline}"
+                            Width="100" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Bottom" 
+                            Margin="10,0,0,0" 
+                            Visibility="Visible" 
+                            Background="#FFC34545" 
+                            BorderBrush="#181818" 
+                            Click="ButtonNao_OnClick"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth5"/>
+
                 </StackPanel>
             </Grid>
         </materialDesign:TransitioningContent>

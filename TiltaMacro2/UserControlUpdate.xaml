@@ -8,37 +8,112 @@
              d:DesignHeight="240" d:DesignWidth="280"
              Loaded="UserControlUpdate_OnLoaded"
              Unloaded="UserControlUpdate_OnUnloaded">
-    <Grid Width="280" Height="240" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+    <!--Grid principal-->
+    <Grid 
+        Width="280" Height="240" 
+        HorizontalAlignment="Center" 
+        VerticalAlignment="Center">
+
+        <!--Grid com função de dar efeito de transição-->
         <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect FadeIn, Duration=0:0:0.8}">
             <Grid>
-                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,10,0,0">
-                    <Label x:Name="Label1" Content="PROCURANDO" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Opacity="0.5" FontSize="18"/>
-                    <Label x:Name="Label2" Content="ATUALIZAÇÃO" Margin="0,-15,0,6" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Opacity="0.5" FontSize="18"/>
+                <!--Stackpanel inicial-->
+                <StackPanel 
+                    VerticalAlignment="Top" 
+                    HorizontalAlignment="Center"
+                    Margin="0,10,0,0">
 
-                    <ProgressBar x:Name="ProgressBar" Style="{StaticResource MaterialDesignCircularProgressBar}" Value="0" IsIndeterminate="True" Foreground="Red" Width="100" Height="100"/>
+                    <!--Label 1-->
+                    <Label x:Name="Label1" 
+                           Content="PROCURANDO" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Top" 
+                           Foreground="White" 
+                           Opacity="0.5" 
+                           FontSize="18"/>
+                    <!--Label 2-->
+                    <Label x:Name="Label2" 
+                           Content="ATUALIZAÇÃO" 
+                           Margin="0,-15,0,6" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Top" 
+                           Foreground="White" 
+                           Opacity="0.5" 
+                           FontSize="18"/>
 
-                    <materialDesign:PackIcon x:Name="Icon" Kind="Update" Width="100" Height="100" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Opacity="0.8" Visibility="Collapsed"/>
-                    
-                    <!--<StackPanel x:Name="StackPanelSemUpdate" Visibility="Collapsed">
-                        <Button x:Name="ButtonSemUpdate" Width="100" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,0" Content="VOLTAR" Visibility="Visible" BorderBrush="#181818" Click="ButtonSemUpdate_OnClick"/>
-                    </StackPanel>-->
-                    <!--Atualização encontrada-->
+                    <!--Barra de progresso circular-->
+                    <ProgressBar x:Name="ProgressBar"
+                                 Style="{StaticResource MaterialDesignCircularProgressBar}" 
+                                 Value="0" 
+                                 IsIndeterminate="True" 
+                                 Foreground="Red" 
+                                 Width="100" 
+                                 Height="100" 
+                                 Maximum="68"/>
+
+                    <!--Ícone do meio-->
+                    <materialDesign:PackIcon x:Name="Icon" 
+                                             Kind="Update" 
+                                             Width="100" 
+                                             Height="100" 
+                                             VerticalAlignment="Center" 
+                                             HorizontalAlignment="Center" 
+                                             Foreground="White" 
+                                             Opacity="0.8" 
+                                             Visibility="Collapsed"/>
                 </StackPanel>
 
+                <!--Stackpanel que será mostrado caso não tenha update-->
                 <StackPanel x:Name="StackPanelUpdate" Visibility="Collapsed" VerticalAlignment="Bottom">
-                    <Label x:Name="LabelRealizarUpdate" Content="Deseja realizar o update?" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Opacity="0.5" FontSize="18"/>
-                    <StackPanel x:Name="StackPanelBotoes" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-                        <Button x:Name="ButtonUpdateNote" Width="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,10,0" Visibility="Visible" BorderBrush="#181818" Click="ButtonUpdateNote_OnClick">
-                            <materialDesign:PackIcon Kind="InfoOutline" Width="20" Height="20" HorizontalAlignment="Center"/>
-                        </Button>
+                    <!--Label deseja realizar update?-->
+                    <Label x:Name="LabelRealizarUpdate" 
+                           Content="Deseja realizar o update?" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Top" 
+                           Foreground="White" 
+                           Opacity="0.5" 
+                           FontSize="18"/>
 
-                        <Button x:Name="ButtonNao" Width="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Visibility="Visible" Background="#FFC34545" BorderBrush="#181818" Click="ButtonNao_OnClick">
-                            <materialDesign:PackIcon Kind="CloseOutline" Width="20" Height="20" HorizontalAlignment="Center"/>
-                        </Button>
-                        <Button x:Name="ButtonSim" Width="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10,0,0,0" Visibility="Visible" Background="#83AE9B" BorderBrush="#181818" Click="ButtonSim_OnClick">
-                            <materialDesign:PackIcon Kind="CheckOutline" Width="20" Height="20" HorizontalAlignment="Center"/>
-                        </Button>
-                        <!--<materialDesign:PackIcon Kind="Floppy" Foreground="White" Opacity="0.8" Width="30" Height="30" Cursor="Hand"/>-->
+                    <!--Stackpanel Botões-->
+                    <StackPanel x:Name="StackPanelBotoes" 
+                                Orientation="Horizontal" 
+                                VerticalAlignment="Bottom" 
+                                HorizontalAlignment="Center">
+
+                        <!--Botão nota do update-->
+                        <Button x:Name="ButtonUpdateNote"
+                                Content="{materialDesign:PackIcon InfoOutline}"
+                                Width="50" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom"
+                                Margin="0,0,10,0"
+                                Visibility="Visible" 
+                                BorderBrush="#181818" 
+                                Click="ButtonUpdateNote_OnClick"/>
+
+                        <!--Botão não-->
+                        <Button x:Name="ButtonNao"
+                                Content="{materialDesign:PackIcon CloseOutline}"
+                                Width="50"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom"
+                                Visibility="Visible"
+                                Background="#FFC34545"
+                                BorderBrush="#181818"
+                                Click="ButtonNao_OnClick"/>
+
+                        <!--Botão sim-->
+                        <Button x:Name="ButtonSim" 
+                                Content="{materialDesign:PackIcon CheckOutline}"
+                                Width="50" 
+                                HorizontalAlignment="Center" 
+                                VerticalAlignment="Bottom"
+                                Margin="10,0,0,0" 
+                                Visibility="Visible"
+                                Background="#83AE9B" 
+                                BorderBrush="#181818"
+                                Click="ButtonSim_OnClick"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>

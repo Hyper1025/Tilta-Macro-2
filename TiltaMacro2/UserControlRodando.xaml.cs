@@ -206,11 +206,11 @@ namespace TiltaMacro2
                 }
                 else
                 {
-                    IconPrincipal.Kind = PackIconKind.Clock;
+                    IconPrincipal.Kind = PackIconKind.GamepadVariant;
                     LabelPrincipal.Content = "AGUARDANDO";
 
                     IconLeagueStatus.Kind = PackIconKind.AlphaL;
-                    LabelLeagueStatus.Content = "Inicie uma partida para rodar";
+                    LabelLeagueStatus.Content = "Inicie uma partida para executar a macro";
                 }
             }
             else

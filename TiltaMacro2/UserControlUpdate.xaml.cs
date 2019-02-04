@@ -55,14 +55,17 @@ namespace TiltaMacro2
                     Label2.Content = "ENCONTRADA";
                     //  Alteramos o icone do centro
                     Icon.Kind = PackIconKind.FileFindOutline;
-                    
+
                     //  Verificamos se é uma atualização obrigatória
                     if (args.Mandatory)
                     {
                         //  Se for obrigatória, avisamos
-                        MessageBox.Show("Atualização obrigatória encontrada, o download irá inciar assim que você clicar em OK, ou fechar essa mensagem.",
+                        MessageBox.Show("Atualização obrigatória encontrada, o download irá inciar assim que você clicar em OK, ou fechar essa mensagem.\tTambém irei abrir as notas de update, para você",
                             "Update obrigatório", MessageBoxButton.OK, MessageBoxImage.Information);
                         //  Chamamos a atualização
+
+                        Global.Notificar("Iniciando Update");
+                        System.Diagnostics.Process.Start(LinkNote);
                         Atualizar();
                     }
 
@@ -78,7 +81,7 @@ namespace TiltaMacro2
                     Label1.Content = "PARABÉNS";
                     Label2.Content = "TUDO ATUALIZADO";
 
-                    Global.Notificar2("Tudo está atualizado", "#555555");
+                    Global.Notificar("Tudo está atualizado", "#555555");
 
                     // <removi isso no update 3.0.1.2
                     //StackPanelSemUpdate.Visibility = Visibility.Visible;
@@ -182,7 +185,7 @@ namespace TiltaMacro2
         //  Botão changelog
         private void ButtonUpdateNote_OnClick(object sender, RoutedEventArgs e)
         {
-            Global.Notificar2("Notas de atualização", "#73C2FB");
+            Global.Notificar("Notas de atualização", "#73C2FB");
             System.Diagnostics.Process.Start(LinkNote);
         }
     }

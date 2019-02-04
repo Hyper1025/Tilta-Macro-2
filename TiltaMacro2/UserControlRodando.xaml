@@ -8,16 +8,62 @@
              d:DesignHeight="240" d:DesignWidth="280"
              Loaded="UserControlRodando_OnLoaded"
              Unloaded="UserControlRodando_OnUnloaded">
-    <Grid Width="280" Height="240" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <!--Grid base-->
+    <Grid 
+        Width="280" 
+        Height="240" 
+        HorizontalAlignment="Center" 
+        VerticalAlignment="Center">
+
+        <!--Grid para levar animação de abertura-->
         <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect FadeIn, Duration=0:0:0.8}">
-        <Grid>
-                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <materialDesign:PackIcon x:Name="IconPrincipal" Kind="clock" Width="100" Height="100" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Opacity="0.8"/>
-                    <Label x:Name="LabelPrincipal" Content="TEXTO" FontSize="17" HorizontalAlignment="Center" Foreground="White" Opacity="0.8"/>
+            <Grid>
+                <!--StackPanel central-->
+                <StackPanel VerticalAlignment="Center" 
+                        HorizontalAlignment="Center">
+
+                    <!--Ícone Principal-->
+                    <materialDesign:PackIcon x:Name="IconPrincipal" 
+                                             Kind="GamepadVariant" 
+                                             Width="100" Height="100" 
+                                             VerticalAlignment="Center" 
+                                             HorizontalAlignment="Center" 
+                                             Foreground="White" 
+                                             Opacity="0.8"/>
+
+                    <!--Label principal-->
+                    <Label x:Name="LabelPrincipal" 
+                           Content="TEXTO" 
+                           FontSize="17" 
+                           HorizontalAlignment="Center" 
+                           Foreground="White" 
+                           Opacity="0.8"
+                           FontWeight="Bold"/>
                 </StackPanel>
-                <StackPanel x:Name="StackPanelLeagueStatus" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20" Visibility="Hidden">
-                    <materialDesign:PackIcon x:Name="IconLeagueStatus" Kind="AlphaL" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Opacity="0.8"/>
-                    <Label x:Name="LabelLeagueStatus" Content="Aguardando league..." HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Opacity="0.5"/>
+
+                <!--StackPanel Status do lol-->
+                <StackPanel x:Name="StackPanelLeagueStatus" 
+                            Orientation="Horizontal" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Bottom" 
+                            Margin="20" 
+                            Visibility="Hidden">
+
+                    <!--Ícone L-->
+                    <materialDesign:PackIcon x:Name="IconLeagueStatus" 
+                                             Kind="AlphaL" 
+                                             VerticalAlignment="Center" 
+                                             HorizontalAlignment="Center" 
+                                             Foreground="White" 
+                                             Opacity="0.8"/>
+
+                    <!--Label Aguardando League-->
+                    <Label x:Name="LabelLeagueStatus"
+                           Content="Aguardando league..." 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Top" 
+                           Foreground="White" 
+                           Opacity="0.5"/>
                 </StackPanel>
             </Grid>
         </materialDesign:TransitioningContent>

@@ -11,109 +11,308 @@
         WindowStyle="None"
         Background="Black">
 
-    <!--Animações--><!--
-    <Window.Resources>
-        --><!--Abrir e fechar notificação-->
-        <!-- ReSharper disable once Xaml.RedundantResource --><!--
-        <Storyboard x:Key="OpenNotifica">
-            --><!--Opacidade--><!--
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Opacity)" Storyboard.TargetName="GridNotifica">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.9"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:3.0" Value="0.9"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:3.5" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-
-            --><!--Movimentação--><!--
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridNotifica">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="{Binding ElementName=StackPanelNotifica, Path=Width, Mode=OneWay}"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:3.0" Value="{Binding ElementName=StackPanelNotifica, Path=Width, Mode=OneWay}"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:3.5" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-    </Window.Resources>-->
-
     <Grid>
         <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect FadeIn, Duration=0:0:0.8}">
             <Grid>
 
+                <!--Cor do fundo-->
                 <!--Imagem de fundo-->
-                <Image Source="Assets/bgp.jpg"/>
+                <Image x:Name="ImageBg"/>
 
                 <!--Retangulo gradiente-->
-                <Rectangle Height="280" VerticalAlignment="Top" MouseDown="DegradeTopo_OnMouseDown">
-                    <Rectangle.Fill>
+                <Rectangle 
+                    Height="280" 
+                    VerticalAlignment="Top"
+                    MouseDown="DegradeTopo_OnMouseDown" 
+                    MouseLeftButtonDown="MoverJanela"
+                    Fill="Transparent">
+                    <!--<Rectangle.Fill>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.3">
-                            <GradientStop Color="#FF972D2D"/>
-                            <GradientStop Color="#181818" Offset="1"/>
+                            <GradientStop Color="#1c1c1c"/>
+                            <GradientStop Color="Transparent" Offset="0.8"/>
                         </LinearGradientBrush>
-                    </Rectangle.Fill>
+                    </Rectangle.Fill>-->
                 </Rectangle>
 
+                <!--Botão update-->
+                <Button 
+                    x:Name="ButtonUpdate" 
+                    ToolTip="Verificar atualizações" 
+                    Content="{materialDesign:PackIcon Download}" 
+                    Width="30" Height="30" 
+                    Background="{x:Null}" BorderBrush="{x:Null}" 
+                    Padding="0" 
+                    Foreground="White" 
+                    Opacity="0.2" 
+                    VerticalAlignment="Top" HorizontalAlignment="Left" 
+                    Click="ButtonUpdate_OnClick" 
+                    Visibility="Hidden"/>
+
                 <!--Botão configuração-->
-                <Button x:Name="ButtonUpdate" Content="{materialDesign:PackIcon Download}" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.2" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ButtonUpdate_OnClick" Visibility="Hidden"/>
+                <Button 
+                    x:Name="ButtonConfig" 
+                    ToolTip="Abrir configurações" 
+                    Content="{materialDesign:PackIcon Settings}" 
+                    Width="30" Height="30" 
+                    Background="{x:Null}" BorderBrush="{x:Null}" 
+                    Padding="0" 
+                    Foreground="White" 
+                    Opacity="0.2" 
+                    VerticalAlignment="Top" HorizontalAlignment="Right" 
+                    Margin="0,0,60,0" 
+                    Click="ButtonConfig_OnClick" 
+                    Visibility="Hidden"/>
 
-                    <!--Botão configuração-->
-                <Button x:Name="ButtonConfig" Content="{materialDesign:PackIcon Settings}" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.2" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,60,0" Click="ButtonConfig_OnClick" Visibility="Hidden"/>
 
-
-                    <!--Botão Home-->
-                <Button x:Name="ButtonHome" Content="{materialDesign:PackIcon Home}" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.2" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,60,0" Click="ButtonHome_OnClick" Visibility="Hidden"/>
+                <!--Botão Home-->
+                <Button 
+                    x:Name="ButtonHome" 
+                    ToolTip="Voltar ao início" 
+                    Content="{materialDesign:PackIcon Home}" 
+                    Width="30" Height="30" 
+                    Background="{x:Null}" BorderBrush="{x:Null}"
+                    Padding="0" 
+                    Foreground="White"
+                    Opacity="0.2"
+                    VerticalAlignment="Top" HorizontalAlignment="Right" 
+                    Margin="0,0,60,0" 
+                    Click="ButtonHome_OnClick" 
+                    Visibility="Hidden"/>
 
                 <!--Botão minimizar-->
-                <Button x:Name="ButtonMinimizar" Content="{materialDesign:PackIcon WindowMinimize}" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.2" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,30,0" Click="ButtonMinimizar_OnClick"/>
+                <Button 
+                    x:Name="ButtonMinimizar" 
+                    ToolTip="Minimizar" 
+                    Content="{materialDesign:PackIcon WindowMinimize}" 
+                    Width="30" Height="30" 
+                    Background="{x:Null}" 
+                    BorderBrush="{x:Null}" 
+                    Padding="0" 
+                    Foreground="White" 
+                    Opacity="0.2" 
+                    VerticalAlignment="Top" 
+                    HorizontalAlignment="Right" 
+                    Margin="0,0,30,0" 
+                    Click="ButtonMinimizar_OnClick"/>
 
                 <!--Botão fechar-->
-                <Button x:Name="ButtonFechar" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.2" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonFechar_OnClick">
-                    <materialDesign:PackIcon Kind="Power"/>
-                </Button>
+                <Button 
+                    x:Name="ButtonFechar" 
+                    ToolTip="Fechar" 
+                    Content="{materialDesign:PackIcon Power}" 
+                    Width="30" Height="30" 
+                    Background="{x:Null}" BorderBrush="{x:Null}" 
+                    Padding="0" 
+                    Foreground="White" 
+                    Opacity="0.2" 
+                    VerticalAlignment="Top" HorizontalAlignment="Right" 
+                    Click="ButtonFechar_OnClick"/>
 
                 <!--Logo do programa-->
-                <Image Source="Assets/TM2.png" Width="100" Height="100" VerticalAlignment="Top" Margin="20" Opacity="0.8"/>
+                <Image 
+                    Source="Assets/TM.png"
+                    Width="100" Height="100" 
+                    VerticalAlignment="Top" 
+                    Margin="20" 
+                    Opacity="0.8" 
+                    MouseDown="DegradeTopo_OnMouseDown"/>
 
                 <!--Retangulo para ser a base visual da grelha funcional-->
-                <Rectangle Width="280" Height="240" VerticalAlignment="Bottom" Margin="35,0,35,106" RadiusY="10" RadiusX="10" Fill="White" Opacity="0.15">
+                <Rectangle 
+                    Width="280" Height="240" 
+                    VerticalAlignment="Bottom" 
+                    Margin="35,0,35,105" 
+                    RadiusY="10" RadiusX="10" 
+                    Fill="White" 
+                    Opacity="0.15">
                     <Rectangle.Effect>
-                        <DropShadowEffect BlurRadius="15" Direction="0" RenderingBias="Quality" ShadowDepth="1" Color="#FF972D2D"/>
+                        <DropShadowEffect 
+                            BlurRadius="15" 
+                            Direction="0"
+                            RenderingBias="Quality" 
+                            ShadowDepth="1" 
+                            Color="Black"/>
                     </Rectangle.Effect>
                 </Rectangle>
 
-                <!--Para me facilitar criar as sub grelhas-->
-
                 <!--Grelha para funcional-->
-                <Grid x:Name="GridPrincipal" Width="280" Height="255" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="35,154,35,91"/>
+                <!--Nela serão carregadas os usercontrols-->
+                <Grid 
+                    x:Name="GridPrincipal" 
+                    Width="280" Height="255" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    Margin="35,140,35,90"/>
 
                 <!--Botões inferiores esquerda-->
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5">
-                    <Button x:Name="ButtonInfo" Content="{materialDesign:PackIcon InformationOutline}" ToolTip="Informações" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonInfo_OnClick"/>
-                    <Button x:Name="ButtonCompartilha" Content="{materialDesign:PackIcon ShareVariant}" ToolTip="Link de compartilhamento" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonShare_OnClick"/>
+                <StackPanel 
+                    Orientation="Horizontal" 
+                    VerticalAlignment="Bottom" 
+                    HorizontalAlignment="Left" 
+                    Margin="5">
+
+                    <!--Botão informação-->
+                    <Button 
+                        x:Name="ButtonInfo" 
+                        Content="{materialDesign:PackIcon InformationOutline}" 
+                        ToolTip="Informações" 
+                        Width="30" Height="30" 
+                        Background="{x:Null}" BorderBrush="{x:Null}" 
+                        Padding="0" 
+                        Foreground="White" 
+                        Opacity="0.8" 
+                        Margin="2" 
+                        Click="ButtonInfo_OnClick"/>
+
+                    <!--Botão compartilhar-->
+                    <Button 
+                        x:Name="ButtonCompartilha"
+                        Content="{materialDesign:PackIcon ShareVariant}"
+                        ToolTip="Link de compartilhamento" 
+                        Width="30" Height="30"
+                        Background="{x:Null}" BorderBrush="{x:Null}" 
+                        Padding="0" 
+                        Foreground="White"
+                        Opacity="0.8"
+                        Margin="2" 
+                        Click="ButtonShare_OnClick"/>
                 </StackPanel>
 
                 <!--Botões inferiores centrais-->
-                <StackPanel x:Name="StackPanelMainFinal" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="5">
-                    <Button x:Name="ButtonYouTube" Content="{materialDesign:PackIcon Youtube}" ToolTip="YouTube" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonYouTube_OnClick"/>
-                    <Button x:Name="ButtonGithub" Content="{materialDesign:PackIcon GithubCircle}" ToolTip="GitHub" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonGithub_OnClick"/>
-                    <Button x:Name="ButtonDiscord" Content="{materialDesign:PackIcon Discord}" ToolTip="Discord" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonDiscord_OnClick"/>
-                    <Button x:Name="ButtonPayPal" Content="{materialDesign:PackIcon Paypal}" ToolTip="PayPal" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonPayPal_OnClick"/>
+                <StackPanel 
+                    x:Name="StackPanelMainFinal" 
+                    Orientation="Horizontal" 
+                    VerticalAlignment="Bottom" 
+                    HorizontalAlignment="Center" 
+                    Margin="5">
+
+                    <!--Botão YouTube-->
+                    <Button 
+                        x:Name="ButtonYouTube" 
+                        Content="{materialDesign:PackIcon Youtube}" 
+                        ToolTip="YouTube"
+                        Width="30" Height="30"
+                        Background="{x:Null}" BorderBrush="{x:Null}" 
+                        Padding="0" 
+                        Foreground="White" 
+                        Opacity="0.8" 
+                        Margin="2" 
+                        Click="ButtonYouTube_OnClick"/>
+
+                    <!--Botão GitHub-->
+                    <Button 
+                        x:Name="ButtonGithub"
+                        Content="{materialDesign:PackIcon GithubCircle}" 
+                        ToolTip="GitHub" 
+                        Width="30" Height="30" 
+                        Background="{x:Null}" BorderBrush="{x:Null}" 
+                        Padding="0" 
+                        Foreground="White" 
+                        Opacity="0.8" 
+                        Margin="2" 
+                        Click="ButtonGithub_OnClick"/>
+
+                    <!--Botão Discord-->
+                    <Button 
+                        x:Name="ButtonDiscord" 
+                        Content="{materialDesign:PackIcon Discord}"
+                        ToolTip="Discord" 
+                        Width="30" Height="30" 
+                        Background="{x:Null}" BorderBrush="{x:Null}" 
+                        Padding="0"
+                        Foreground="White"
+                        Opacity="0.8"
+                        Margin="2"
+                        Click="ButtonDiscord_OnClick"/>
+
+                    <!--Botão PayPal-->
+                    <Button 
+                        x:Name="ButtonPayPal"
+                        Content="{materialDesign:PackIcon Paypal}"
+                        ToolTip="PayPal" 
+                        Width="30" Height="30"
+                        Background="{x:Null}" BorderBrush="{x:Null}"
+                        Padding="0"
+                        Foreground="White"
+                        Opacity="0.8"
+                        Margin="2" 
+                        Click="ButtonPayPal_OnClick"/>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5">
-                    <Button x:Name="ButtonBug" Content="{materialDesign:PackIcon Bug}" ToolTip="Reportar bug" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="White" Opacity="0.8" Margin="2" Click="ButtonBug_OnClick"/>
-                    <Label x:Name="LabelVersion" Content="v 0.0.0.0" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White" Opacity="0.5" />
+                <!--StackPanel Inferior Direito-->
+                <StackPanel 
+                    Orientation="Horizontal" 
+                    HorizontalAlignment="Right" 
+                    VerticalAlignment="Bottom" 
+                    Margin="5">
+
+                    <!--Botão reportar bug-->
+                    <Button 
+                        x:Name="ButtonBug" 
+                        Content="{materialDesign:PackIcon Bug}" 
+                        ToolTip="Reportar bug"
+                        Width="30" Height="30" 
+                        Background="{x:Null}" BorderBrush="{x:Null}" 
+                        Padding="0" 
+                        Foreground="White" 
+                        Opacity="0.8" 
+                        Margin="2" 
+                        Click="ButtonBug_OnClick"/>
+
+                    <!--Label versão-->
+                    <Label x:Name="LabelVersion"
+                           ToolTip="Versão instalada"
+                           Content="v 0.0.0.0"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center" 
+                           Foreground="White" 
+                           Opacity="0.5" />
                 </StackPanel>
 
                 <!--Barra notificação-->
-                <materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}" x:Name="NotificaInferior" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                <materialDesign:Snackbar 
+                    x:Name="NotificaInferior" 
+                    MessageQueue="{materialDesign:MessageQueue}"
+                    VerticalContentAlignment="Center"
+                    HorizontalContentAlignment="Center"/>
 
-                <Grid x:Name="GridNotifica" Height="60" Width="280" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="35,60,35,0" Background="Black" Opacity="0">
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0">
-                        <StackPanel x:Name="StackPanelNotifica" Orientation="Horizontal">
-                            <materialDesign:PackIcon x:Name="IconNotifica" Kind="CheckOutline" Width="30" Height="30" Foreground="White" Opacity="0.8" Margin="0,0,5,0"/>
-                            <Label x:Name="LabelNotifica" Content="Texto" Margin="0,0,5,0" Foreground="White"></Label>
+                <!--#region Notificação Desativada-->
+                <!--<Grid 
+                    x:Name="GridNotifica" 
+                    Height="60" Width="280" 
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top" 
+                    Margin="35,60,35,0" 
+                    Background="Black" 
+                    Opacity="0">
+                    
+                    <StackPanel 
+                        Orientation="Horizontal" 
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Center" 
+                        Margin="10,0,0,0">
+                        
+                        <StackPanel 
+                            x:Name="StackPanelNotifica"
+                            Orientation="Horizontal">
+                            
+                            <materialDesign:PackIcon 
+                                x:Name="IconNotifica" 
+                                Kind="CheckOutline" 
+                                Width="30" Height="30" 
+                                Foreground="White" 
+                                Opacity="0.8" 
+                                Margin="0,0,5,0"/>
+                            
+                            <Label 
+                                x:Name="LabelNotifica" 
+                                Content="Texto" 
+                                Margin="0,0,5,0" 
+                                Foreground="White"/>
                         </StackPanel>
                     </StackPanel>
-                </Grid>
+                </Grid>-->
+                <!--#endregion-->
             </Grid>
         </materialDesign:TransitioningContent>
     </Grid>

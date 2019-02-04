@@ -1,13 +1,14 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media.Animation;
+using System.Windows.Media.Imaging;
 using TiltaMacro2.Properties;
 
 namespace TiltaMacro2
 {
     /// <summary>
-    /// Interação lógica para MainWindow.xam
+    /// Interação lógica para MainWindow.xaml
     /// </summary>
     public partial class MainWindow
     {
@@ -41,8 +42,10 @@ namespace TiltaMacro2
 
             //  Barra notificação
             Global.BarraNotifica = NotificaInferior;
+
+            BgRand();
         }
-        
+
         //  Mover 
         private void DegradeTopo_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -74,49 +77,49 @@ namespace TiltaMacro2
         //  Abrir YouTube
         private void ButtonYouTube_OnClick(object sender, RoutedEventArgs e)
         {
-            Global.Notificar2("Aproveite, e se inscreva no canal");
+            Global.Notificar("Aproveite, e se inscreva no canal");
             System.Diagnostics.Process.Start("https://www.youtube.com/channel/UC0iyCfiJ9MUzJCUfbZdtrFA");
         }
 
         //  Abrir Github
         private void ButtonGithub_OnClick(object sender, RoutedEventArgs e)
         {
-            Global.Notificar2("Sim... somos open-source");
+            Global.Notificar("Sim... somos open-source");
             System.Diagnostics.Process.Start("https://github.com/Hyper1025/Tilta-Macro-2");
         }
 
         //  Abrir Discord
         private void ButtonDiscord_OnClick(object sender, RoutedEventArgs e)
         {
-            Global.Notificar2("Boas vindas a nossa comunidade");
+            Global.Notificar("Boas vindas a nossa comunidade");
             System.Diagnostics.Process.Start("https://discord.gg/cAy4pqk");
         }
 
         //  Botão compartilhar
         private void ButtonShare_OnClick(object sender, RoutedEventArgs e)
         {
-            Global.Notificar2("Copiado para sua área de transferência");
+            Global.Notificar("Copiado para sua área de transferência");
             Clipboard.SetText("http://bit.ly/TiltaMacroInvite");
         }
 
         //  Botão PayPal
         private void ButtonPayPal_OnClick(object sender, RoutedEventArgs e)
         {
-            Global.Notificar2("Obrigado por cojitar uma doação");
+            Global.Notificar("Obrigado por cojitar uma doação");
             System.Diagnostics.Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VVNYNKR2NA9U2&source=url");
         }
 
         //  Botão informação
         private void ButtonInfo_OnClick(object sender, RoutedEventArgs e)
         {
-            Global.Notificar2("Abrindo informações no Gith");
+            Global.Notificar("Abrindo informações no Gith");
             System.Diagnostics.Process.Start("https://github.com/Hyper1025/Tilta-Macro-2/blob/master/Info.md");
         }
 
         //  Botão reportar erro
         private void ButtonBug_OnClick(object sender, RoutedEventArgs e)
         {
-            Global.Notificar2("Abrindo report de bugs");
+            Global.Notificar("Abrindo report de bugs");
             System.Diagnostics.Process.Start("https://github.com/Hyper1025/Tilta-Macro-2/issues/new");
         }
 
@@ -139,16 +142,53 @@ namespace TiltaMacro2
             GridPrincipal.Children.Add(new UserControlUpdate());
         }
 
-        //  <substituido>
-        //  Evento chamado ao carregar o grid de notificação
-        //  Serve para passarmos os itens da notificação para a classe Global
-        //private void GridNotifica_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    var sb = (Storyboard)FindResource("OpenNotifica");
-        //    Global.Sb = sb;
+        //  Clique duplo centraliza a tela
+        private void MoverJanela(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ClickCount == 2)
+            {
+                CentralizarJanela();
+            }
+        }
 
-        //    Global.IconNotifica = IconNotifica;
-        //    Global.LabelNotifica = LabelNotifica;
-        //}
+        //  Define o Background de forma aleatória
+        private void BgRand()
+        {
+            //  Acredite, foi a melhor maneira que encontrei de fazer isso...
+            //  Tentei até por meio de resources
+
+            string[] bgStrings =
+            {
+                "Darius.jpg",
+                "Draven.jpg",
+                "Fizz.jpg",
+                "Irelia.jpg",
+                "Master-Yi.jpg",
+                "Riven.jpg",
+                "Shaco.jpg",
+                "Teemo.jpg",
+                "Vayne.jpg",
+                "Yasuo.jpg"
+            };
+
+            var selecionado = bgStrings[Global.Rng.Next(0, bgStrings.Length)];
+
+            var uri = new Uri(
+                $"pack://application:,,,/TiltaMacro2;component/Assets/Bgs/{selecionado}"
+                , UriKind.Absolute);
+
+            var imagem = new BitmapImage(uri);
+            ImageBg.Source = imagem;
+        }
+
+
+        //  Função centralizar janela
+        private void CentralizarJanela()
+        {
+            var larguraTela = SystemParameters.PrimaryScreenWidth;
+            var alturaTela = SystemParameters.PrimaryScreenHeight;
+            Left = (larguraTela / 2) - (Width / 2);
+            Top = (alturaTela / 2) - (Height / 2);
+        }
     }
 }

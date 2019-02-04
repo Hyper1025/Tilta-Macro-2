@@ -6,7 +6,7 @@ using TiltaMacro2.Properties;
 namespace TiltaMacro2
 {
     /// <summary>
-    /// Interação lógica para UserControlConfig.xam
+    /// Interação lógica para UserControlConfig.xaml
     /// </summary>
     public partial class UserControlConfig
     {
@@ -39,7 +39,7 @@ namespace TiltaMacro2
 
         private void ButtonSalvar_OnClick(object sender, RoutedEventArgs e)
         {
-            LabelF.Content = "...";
+            LabelTeclaAtual.Content = "...";
             Global.EditandoKey = Key.None;
             TextBoxTextoMacro.IsEnabled = false;
             ButtonSalvar.IsEnabled = false;
@@ -58,9 +58,9 @@ namespace TiltaMacro2
         {
             Global.UltimaKey = e.KeyPressed;
 
-            if(e.KeyPressed.Equals(Key.F1) || e.KeyPressed.Equals(Key.F2) || e.KeyPressed.Equals(Key.F3) || e.KeyPressed.Equals(Key.F4) || e.KeyPressed.Equals(Key.F5) || e.KeyPressed.Equals(Key.F6) || e.KeyPressed.Equals(Key.F7) || e.KeyPressed.Equals(Key.F8) || e.KeyPressed.Equals(Key.F9) || e.KeyPressed.Equals(Key.F10) || e.KeyPressed.Equals(Key.F11) || e.KeyPressed.Equals(Key.F12) || e.KeyPressed.Equals(Key.NumPad0) || e.KeyPressed.Equals(Key.NumPad1) || e.KeyPressed.Equals(Key.NumPad2) || e.KeyPressed.Equals(Key.NumPad3) || e.KeyPressed.Equals(Key.NumPad4) || e.KeyPressed.Equals(Key.NumPad5) || e.KeyPressed.Equals(Key.NumPad6) || e.KeyPressed.Equals(Key.NumPad7) || e.KeyPressed.Equals(Key.NumPad8) || e.KeyPressed.Equals(Key.NumPad9))
+            if (e.KeyPressed.Equals(Key.F1) || e.KeyPressed.Equals(Key.F2) || e.KeyPressed.Equals(Key.F3) || e.KeyPressed.Equals(Key.F4) || e.KeyPressed.Equals(Key.F5) || e.KeyPressed.Equals(Key.F6) || e.KeyPressed.Equals(Key.F7) || e.KeyPressed.Equals(Key.F8) || e.KeyPressed.Equals(Key.F9) || e.KeyPressed.Equals(Key.F10) || e.KeyPressed.Equals(Key.F11) || e.KeyPressed.Equals(Key.F12) || e.KeyPressed.Equals(Key.NumPad0) || e.KeyPressed.Equals(Key.NumPad1) || e.KeyPressed.Equals(Key.NumPad2) || e.KeyPressed.Equals(Key.NumPad3) || e.KeyPressed.Equals(Key.NumPad4) || e.KeyPressed.Equals(Key.NumPad5) || e.KeyPressed.Equals(Key.NumPad6) || e.KeyPressed.Equals(Key.NumPad7) || e.KeyPressed.Equals(Key.NumPad8) || e.KeyPressed.Equals(Key.NumPad9))
             {
-                LabelF.Content = e.KeyPressed.ToString();
+                LabelTeclaAtual.Content = e.KeyPressed.ToString();
                 Global.EditandoKey = e.KeyPressed;
 
                 TextBoxTextoMacro.IsEnabled = true;
@@ -73,61 +73,61 @@ namespace TiltaMacro2
             }
 
             switch (Global.EditandoKey)
-                {
-                    case Key.F1:
-                        TextBoxTextoMacro.Text = Settings.Default.F1;
-                        CheckBoxAll.IsChecked = Settings.Default.F1All;
+            {
+                case Key.F1:
+                    TextBoxTextoMacro.Text = Settings.Default.F1;
+                    CheckBoxAll.IsChecked = Settings.Default.F1All;
                     break;
-                    case Key.F2:
-                        TextBoxTextoMacro.Text = Settings.Default.F2;
-                        CheckBoxAll.IsChecked = Settings.Default.F2All;
-                    break;
-
-                    case Key.F3:
-                        TextBoxTextoMacro.Text = Settings.Default.F3;
-                        CheckBoxAll.IsChecked = Settings.Default.F3All;
+                case Key.F2:
+                    TextBoxTextoMacro.Text = Settings.Default.F2;
+                    CheckBoxAll.IsChecked = Settings.Default.F2All;
                     break;
 
-                    case Key.F4:
-                        TextBoxTextoMacro.Text = Settings.Default.F4;
-                        CheckBoxAll.IsChecked = Settings.Default.F4All;
+                case Key.F3:
+                    TextBoxTextoMacro.Text = Settings.Default.F3;
+                    CheckBoxAll.IsChecked = Settings.Default.F3All;
                     break;
 
-                    case Key.F5:
-                        TextBoxTextoMacro.Text = Settings.Default.F5;
-                        CheckBoxAll.IsChecked = Settings.Default.F5All;
+                case Key.F4:
+                    TextBoxTextoMacro.Text = Settings.Default.F4;
+                    CheckBoxAll.IsChecked = Settings.Default.F4All;
                     break;
 
-                    case Key.F6:
-                        TextBoxTextoMacro.Text = Settings.Default.F6;
-                        CheckBoxAll.IsChecked = Settings.Default.F6All;
-                    break;
-                    case Key.F7:
-                        TextBoxTextoMacro.Text = Settings.Default.F7;
-                        CheckBoxAll.IsChecked = Settings.Default.F7All;
+                case Key.F5:
+                    TextBoxTextoMacro.Text = Settings.Default.F5;
+                    CheckBoxAll.IsChecked = Settings.Default.F5All;
                     break;
 
-                    case Key.F8:
-                        TextBoxTextoMacro.Text = Settings.Default.F8;
-                        CheckBoxAll.IsChecked = Settings.Default.F8All;
+                case Key.F6:
+                    TextBoxTextoMacro.Text = Settings.Default.F6;
+                    CheckBoxAll.IsChecked = Settings.Default.F6All;
+                    break;
+                case Key.F7:
+                    TextBoxTextoMacro.Text = Settings.Default.F7;
+                    CheckBoxAll.IsChecked = Settings.Default.F7All;
                     break;
 
-                    case Key.F9:
-                        TextBoxTextoMacro.Text = Settings.Default.F9;
-                        CheckBoxAll.IsChecked = Settings.Default.F9All;
+                case Key.F8:
+                    TextBoxTextoMacro.Text = Settings.Default.F8;
+                    CheckBoxAll.IsChecked = Settings.Default.F8All;
                     break;
 
-                    case Key.F10:
-                        TextBoxTextoMacro.Text = Settings.Default.F10;
-                        CheckBoxAll.IsChecked = Settings.Default.F10All;
+                case Key.F9:
+                    TextBoxTextoMacro.Text = Settings.Default.F9;
+                    CheckBoxAll.IsChecked = Settings.Default.F9All;
+                    break;
+
+                case Key.F10:
+                    TextBoxTextoMacro.Text = Settings.Default.F10;
+                    CheckBoxAll.IsChecked = Settings.Default.F10All;
                     break;
                 case Key.F11:
                     TextBoxTextoMacro.Text = Settings.Default.F11;
                     CheckBoxAll.IsChecked = Settings.Default.F11All;
                     break;
-                    case Key.F12:
-                        TextBoxTextoMacro.Text = Settings.Default.F12;
-                        CheckBoxAll.IsChecked = Settings.Default.F12All;
+                case Key.F12:
+                    TextBoxTextoMacro.Text = Settings.Default.F12;
+                    CheckBoxAll.IsChecked = Settings.Default.F12All;
                     break;
                 case Key.NumPad0:
                     TextBoxTextoMacro.Text = Settings.Default.NumPad0;
@@ -261,14 +261,7 @@ namespace TiltaMacro2
             }
             else
             {
-                if (TextBoxTextoMacro.Text.Length >= 1)
-                {
-                    LabelContador.Content = "Frase: 1";
-                }
-                else
-                {
-                    LabelContador.Content = "Frase: 0";
-                }
+                LabelContador.Content = TextBoxTextoMacro.Text.Length >= 1 ? "Frase: 1" : "Frase: 0";
             }
         }
 
@@ -385,7 +378,7 @@ namespace TiltaMacro2
         {
             Settings.Default.Reload();
 
-            LabelF.Content = "...";
+            LabelTeclaAtual.Content = "...";
             Global.EditandoKey = Key.None;
             TextBoxTextoMacro.IsEnabled = false;
             TextBoxTextoMacro.Text = "";
@@ -395,8 +388,8 @@ namespace TiltaMacro2
             ButtonDividir.IsEnabled = false;
             Buttonreset.IsEnabled = false;
             Settings.Default.Save();
-            
-            Global.Notificar2("Retornado para o último save", "#73C2FB");
+
+            Global.Notificar("Retornado para o último save", "#73C2FB");
         }
     }
 }

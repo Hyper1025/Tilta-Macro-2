@@ -4,12 +4,11 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
 using MaterialDesignThemes.Wpf;
 
 namespace TiltaMacro2
 {
-    public class Global
+    internal class Global
     {
         //  Misc
         public static Random Rng { get; set; } = new Random();
@@ -27,23 +26,10 @@ namespace TiltaMacro2
         public static Button CasinhaButton { get; set; }
         public static Button AtualizacaoButton { get; set; }
 
-        //  Itens Notificação
-        internal static Storyboard Sb { get; set; }
-        internal static Label LabelNotifica { get; set; }
-        internal static PackIcon IconNotifica { get; set; }
-
         //  Barra notificação  
         internal static Snackbar BarraNotifica { get; set; }
 
-        //  Exibe uma notificação
-        //public static void Notificar(PackIconKind icone, string texto)
-        //{
-        //    LabelNotifica.Content = texto;
-        //    IconNotifica.Kind = icone;
-        //    Sb.Begin();
-        //}
-
-        public static void Notificar2(string texto, string corHex = null)
+        public static void Notificar(string texto, string corHex = null)
         {
             if (corHex == null)
             {
@@ -73,8 +59,8 @@ namespace TiltaMacro2
 
             if (notificar)
             {
-                Notificar2("Tudo salvo", "#83AE9B");
-            }          
+                Notificar("Tudo salvo", "#83AE9B");
+            }
         }
     }
 }

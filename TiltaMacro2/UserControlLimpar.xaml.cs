@@ -27,7 +27,7 @@ namespace TiltaMacro2
             Settings.Default.Reset();
             Settings.Default.Save();
 
-            Global.Notificar2("Configurações redefinidas");
+            Global.Notificar("Configurações redefinidas");
 
             Global.GlobalGridPrincipal.Children.Clear();
             Global.Salvo(false);
