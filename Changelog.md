@@ -1,4 +1,25 @@
 # Log de atualizações
+## 1.0.3.7
+- Mudanças visuais
+- Agora pode ser arrastado mesmo arrastando sobre a logo
+- Clique duplo na parte superior irá centralizar a janela
+- Agora a caixa de texto tem 3 linhas, e faz scroll pra baixo, isso irá facilitar a visualização do seu texto
+- Mais botões com suporte para tooltip
+- Botões agora são mais visuais do que nunca
+- Mais backgrounds, ele é sorteado ao iniciar o programa
+- Update da biblioteca  AutoUpdater
+- XAML`s estão mais organizados
+
+## 1.0.3.6
+-  Mudanças visuais
+- Você deve demorar menos na tela de update
+- Novo sistema de notificações, visa acelerar o programa, por assim dizer
+- Melhoria no código de todos botões
+- Novo botão de retornar ao último save
+- Novo botão para reportar bugs
+- Agora botões são mais vísuais
+- Corrigido pequeno erro, que ao digitar uma frase, e apaga-la por completo, faz com que o contador de frases se mantenha exibindo o número 1
+
 ## 1.0.3.5
 -  Mudanças visuais
 - Você deve demorar menos na tela de update
