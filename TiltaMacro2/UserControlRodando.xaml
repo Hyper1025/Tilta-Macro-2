@@ -22,6 +22,20 @@
                 <StackPanel VerticalAlignment="Center" 
                         HorizontalAlignment="Center">
 
+                    <!--Ícone League Colorida-->
+                    <Image x:Name="LeagueLogoColorido" 
+                           Visibility="Collapsed"
+                           Source="Assets/League1.png"
+                           Width="100" Height="100"
+                           Opacity="0.8"/>
+
+                    <!--Ícone League Branca-->
+                    <Image x:Name="LeagueLogoBranca" 
+                           Visibility="Collapsed"
+                           Source="Assets/League.png"
+                           Width="100" Height="100"
+                           Opacity="0.8"/>
+
                     <!--Ícone Principal-->
                     <materialDesign:PackIcon x:Name="IconPrincipal" 
                                              Kind="GamepadVariant" 
@@ -31,14 +45,29 @@
                                              Foreground="White" 
                                              Opacity="0.8"/>
 
-                    <!--Label principal-->
-                    <Label x:Name="LabelPrincipal" 
-                           Content="TEXTO" 
-                           FontSize="17" 
-                           HorizontalAlignment="Center" 
-                           Foreground="White" 
-                           Opacity="0.8"
-                           FontWeight="Bold"/>
+                    <!--StackPanel Horizontal-->
+                    <StackPanel 
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                        
+                        <!--ProgressBar Esperando-->
+                        <ProgressBar x:Name="ProgressBarEsperando"
+                                     Visibility="Collapsed"
+                                     Style="{StaticResource MaterialDesignCircularProgressBar}" 
+                                     Value="0" 
+                                     IsIndeterminate="True" 
+                                     Foreground="White"
+                                     Opacity="0.8"
+                                     Maximum="68"/>
+                        <!--Label principal-->
+                        <Label x:Name="LabelPrincipal" 
+                               Content="TEXTO" 
+                               FontSize="17" 
+                               HorizontalAlignment="Center" 
+                               Foreground="White" 
+                               Opacity="0.8"
+                               FontWeight="Bold"/>
+                    </StackPanel>
                 </StackPanel>
 
                 <!--StackPanel Status do lol-->
@@ -49,14 +78,6 @@
                             Margin="20" 
                             Visibility="Hidden">
 
-                    <!--Ícone L-->
-                    <materialDesign:PackIcon x:Name="IconLeagueStatus" 
-                                             Kind="AlphaL" 
-                                             VerticalAlignment="Center" 
-                                             HorizontalAlignment="Center" 
-                                             Foreground="White" 
-                                             Opacity="0.8"/>
-
                     <!--Label Aguardando League-->
                     <Label x:Name="LabelLeagueStatus"
                            Content="Aguardando league..." 
@@ -64,6 +85,7 @@
                            VerticalAlignment="Top" 
                            Foreground="White" 
                            Opacity="0.5"/>
+
                 </StackPanel>
             </Grid>
         </materialDesign:TransitioningContent>

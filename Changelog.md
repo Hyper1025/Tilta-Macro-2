@@ -1,4 +1,8 @@
 # Log de atualizações
+## 1.0.3.8
+- Mudanças visuais
+- Melhora compatibilidade com Windows 7
+
 ## 1.0.3.7
 - Mudanças visuais
 - Agora pode ser arrastado mesmo arrastando sobre a logo

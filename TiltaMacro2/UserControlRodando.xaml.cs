@@ -198,24 +198,40 @@ namespace TiltaMacro2
                 //  Verificamos se o league está aberto
                 if (VerificarLeague())
                 {
-                    IconPrincipal.Kind = PackIconKind.CheckMultiple;
-                    LabelPrincipal.Content = "RODANDO";
+                    //  Escondemos
+                    IconPrincipal.Visibility = Visibility.Collapsed;
+                    LeagueLogoBranca.Visibility = Visibility.Collapsed;
+                    ProgressBarEsperando.Visibility = Visibility.Collapsed;
 
-                    IconLeagueStatus.Kind = PackIconKind.AlphaLBox;
-                    LabelLeagueStatus.Content = "Partida iniciada";
+                    //  Mostramos
+                    LeagueLogoColorido.Visibility = Visibility.Visible;
+                    LabelPrincipal.Content = "RODANDO";
+                    LabelLeagueStatus.Visibility = Visibility.Collapsed;
                 }
                 else
                 {
-                    IconPrincipal.Kind = PackIconKind.GamepadVariant;
+                    //  Escondemos
+                    LeagueLogoColorido.Visibility = Visibility.Collapsed;
+                    IconPrincipal.Visibility = Visibility.Collapsed;
+                    
+                    //  Mostramos
+                    LeagueLogoBranca.Visibility = Visibility.Visible;
+                    ProgressBarEsperando.Visibility = Visibility.Visible;
                     LabelPrincipal.Content = "AGUARDANDO";
-
-                    IconLeagueStatus.Kind = PackIconKind.AlphaL;
                     LabelLeagueStatus.Content = "Inicie uma partida para executar a macro";
                 }
             }
             else
             {
+                //  Escondemos
                 StackPanelLeagueStatus.Visibility = Visibility.Hidden;
+                LeagueLogoBranca.Visibility = Visibility.Collapsed;
+                LeagueLogoColorido.Visibility = Visibility.Collapsed;
+                ProgressBarEsperando.Visibility = Visibility.Collapsed;
+
+                //  Mostramos
+                IconPrincipal.Kind = PackIconKind.CheckMultiple;
+                LabelPrincipal.Content = "RODANDO";
             }
         }
 
