@@ -15,13 +15,12 @@
         <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect FadeIn, Duration=0:0:0.8}">
             <Grid>
 
-                <!--Cor do fundo-->
                 <!--Imagem de fundo-->
                 <Image x:Name="ImageBg"/>
 
                 <!--Retangulo gradiente-->
                 <Rectangle 
-                    Height="280" 
+                    Height="155" 
                     VerticalAlignment="Top"
                     MouseDown="DegradeTopo_OnMouseDown" 
                     MouseLeftButtonDown="MoverJanela"

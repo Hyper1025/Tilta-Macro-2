@@ -5,8 +5,9 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using MaterialDesignThemes.Wpf;
+using TiltaMacro2.UserControls;
 
-namespace TiltaMacro2
+namespace TiltaMacro2.Utils
 {
     internal class Global
     {

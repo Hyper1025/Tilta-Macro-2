@@ -2,15 +2,16 @@
 using System.Windows.Controls;
 using System.Windows.Input;
 using TiltaMacro2.Properties;
+using TiltaMacro2.Utils;
 
-namespace TiltaMacro2
+namespace TiltaMacro2.UserControls
 {
     /// <summary>
     /// Interação lógica para UserControlConfig.xaml
     /// </summary>
     public partial class UserControlConfig
     {
-        private LowLevelKeyboardListener _listener;
+        private KeyboardListener _listener;
 
         //  Carrega o pegador
         public UserControlConfig()
@@ -24,7 +25,7 @@ namespace TiltaMacro2
             Global.UltimoUserControl = new UserControlConfig();
             Global.CasinhaButton.Visibility = Visibility.Visible;
 
-            _listener = new LowLevelKeyboardListener();
+            _listener = new KeyboardListener();
             _listener.OnKeyPressed += _listener_OnKeyPressed;
 
             _listener.HookKeyboard();

@@ -5,15 +5,16 @@ using System.Windows.Input;
 using System.Windows.Threading;
 using MaterialDesignThemes.Wpf;
 using TiltaMacro2.Properties;
+using TiltaMacro2.Utils;
 
-namespace TiltaMacro2
+namespace TiltaMacro2.UserControls
 {
     /// <summary>
     /// Interação lógica para UserControlRodando.xam
     /// </summary>
     public partial class UserControlRodando
     {
-        private LowLevelKeyboardListener _listener;
+        private KeyboardListener _listener;
 
         //  Carrega o pegador
         public UserControlRodando()
@@ -160,7 +161,7 @@ namespace TiltaMacro2
         //  Evento ao carregar o UserControlRodando_OnLoaded
         private void UserControlRodando_OnLoaded(object sender, RoutedEventArgs e)
         {
-            _listener = new LowLevelKeyboardListener();
+            _listener = new KeyboardListener();
             _listener.OnKeyPressed += _listener_OnKeyPressed;
 
             _listener.HookKeyboard();

@@ -1,7 +1,8 @@
 ﻿using System.Windows;
 using TiltaMacro2.Properties;
+using TiltaMacro2.Utils;
 
-namespace TiltaMacro2
+namespace TiltaMacro2.UserControls
 {
     /// <summary>
     /// Interação lógica para UserControlLimpar.xam

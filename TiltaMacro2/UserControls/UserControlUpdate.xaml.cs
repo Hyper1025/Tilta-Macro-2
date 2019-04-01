@@ -2,9 +2,10 @@
 using System.Windows;
 using AutoUpdaterDotNET;
 using MaterialDesignThemes.Wpf;
+using TiltaMacro2.Utils;
 using Application = System.Windows.Application;
 
-namespace TiltaMacro2
+namespace TiltaMacro2.UserControls
 {
     /// <summary>
     /// Interação lógica para UserControlUpdate.xam

@@ -98,23 +98,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DesktopWPFAppLowLevelKeyboardHook.cs" />
-    <Compile Include="Global.cs" />
+    <Compile Include="Utils\KeyboardHook.cs" />
+    <Compile Include="Utils\Global.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="UserControlConfig.xaml.cs">
+    <Compile Include="UserControls\UserControlConfig.xaml.cs">
       <DependentUpon>UserControlConfig.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControlLimpar.xaml.cs">
+    <Compile Include="UserControls\UserControlLimpar.xaml.cs">
       <DependentUpon>UserControlLimpar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControlRodando.xaml.cs">
+    <Compile Include="UserControls\UserControlRodando.xaml.cs">
       <DependentUpon>UserControlRodando.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControlUpdate.xaml.cs">
+    <Compile Include="UserControls\UserControlUpdate.xaml.cs">
       <DependentUpon>UserControlUpdate.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
@@ -129,19 +129,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UserControlConfig.xaml">
+    <Page Include="UserControls\UserControlConfig.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControlLimpar.xaml">
+    <Page Include="UserControls\UserControlLimpar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControlRodando.xaml">
+    <Page Include="UserControls\UserControlRodando.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControlUpdate.xaml">
+    <Page Include="UserControls\UserControlUpdate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -213,5 +213,6 @@
   <ItemGroup>
     <Resource Include="Assets\League.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="TiltaMacro2.UserControlRodando"
+﻿<UserControl x:Class="TiltaMacro2.UserControls.UserControlRodando"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -25,14 +25,14 @@
                     <!--Ícone League Colorida-->
                     <Image x:Name="LeagueLogoColorido" 
                            Visibility="Collapsed"
-                           Source="Assets/League1.png"
+                           Source="../Assets/League1.png"
                            Width="100" Height="100"
                            Opacity="0.8"/>
 
                     <!--Ícone League Branca-->
                     <Image x:Name="LeagueLogoBranca" 
                            Visibility="Collapsed"
-                           Source="Assets/League.png"
+                           Source="../Assets/League.png"
                            Width="100" Height="100"
                            Opacity="0.8"/>
 

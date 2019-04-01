@@ -3,9 +3,9 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows.Input;
 
-namespace TiltaMacro2
+namespace TiltaMacro2.Utils
 {
-    public class LowLevelKeyboardListener
+    public class KeyboardListener
     {
         private const int WhKeyboardLl = 13;
         private const int WmKeydown = 0x0100;
@@ -31,7 +31,7 @@ namespace TiltaMacro2
         private readonly LowLevelKeyboardProc _proc;
         private IntPtr _hookId = IntPtr.Zero;
 
-        public LowLevelKeyboardListener()
+        public KeyboardListener()
         {
             _proc = HookCallback;
         }

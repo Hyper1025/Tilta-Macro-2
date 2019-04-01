@@ -4,6 +4,8 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using TiltaMacro2.Properties;
+using TiltaMacro2.UserControls;
+using TiltaMacro2.Utils;
 
 namespace TiltaMacro2
 {
