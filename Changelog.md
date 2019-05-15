@@ -1,4 +1,7 @@
 # Log de atualizações
+## 1.0.3.9
+- Adicionado tempo limite de requisição para checagem de update de 15 segundos
+
 ## 1.0.3.8
 - Mudanças visuais
 - Melhora compatibilidade com Windows 7
