@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Threading;
 using AutoUpdaterDotNET;
 using MaterialDesignThemes.Wpf;
 using TiltaMacro2.Utils;
@@ -12,6 +13,7 @@ namespace TiltaMacro2.UserControls
     /// </summary>
     public partial class UserControlUpdate
     {
+        internal bool ProcessoVerificaUpdateCompleto;
         internal string LinkNote;
 
         public UserControlUpdate()
@@ -22,6 +24,10 @@ namespace TiltaMacro2.UserControls
         //  Ao carregar o UserControlUpdate
         private void UserControlUpdate_OnLoaded(object sender, RoutedEventArgs e)
         {
+            // Ativamos o tempo limite para checagem do update
+            TempoLimiteDoUpdate();
+            ProcessoVerificaUpdateCompleto = false;
+
             //  Reescrevemos o evento de checar update
             AutoUpdater.CheckForUpdateEvent += AutoUpdaterOnCheckForUpdateEvent;
 
@@ -40,6 +46,10 @@ namespace TiltaMacro2.UserControls
             //  Verificamos se a resposta foi diferente de nula
             if (args != null)
             {
+
+                // Se chegamos aqui quer dizer que já carregamos o json do update
+                // Então passamos isso pra variavel
+                ProcessoVerificaUpdateCompleto = true;
 
                 Icon.Visibility = Visibility.Visible;
                 ProgressBar.Visibility = Visibility.Collapsed;
@@ -77,6 +87,12 @@ namespace TiltaMacro2.UserControls
                 }
                 else
                 {
+
+                    // Se chegamos aqui quer dizer que já carregamos o json do update
+                    // Então passamos isso pra variavel
+                    ProcessoVerificaUpdateCompleto = true;
+
+
                     //  Não tem atualização disponível
                     Icon.Kind = PackIconKind.HandOkay;
                     Label1.Content = "PARABÉNS";
@@ -86,9 +102,6 @@ namespace TiltaMacro2.UserControls
 
                     // <removi isso no update 3.0.1.2
                     //StackPanelSemUpdate.Visibility = Visibility.Visible;
-
-                    //  Criamos um timer
-                    //  Ele servirá para apresentarmos a janela de atualização por mais tempo
 
                     //  Limpamos s grip principal
                     Global.GlobalGridPrincipal.Children.Clear();
@@ -109,6 +122,23 @@ namespace TiltaMacro2.UserControls
             else
             {
                 //  Ocorreu um problema ao alcançar o servidor de atualizações, verifique sua conexão com a Internet e tente novamente mais tarde.
+
+                MessageBox.Show("Ocorreu um problema ao alcançar o servidor de atualizações, verifique sua conexão com a Internet e tente novamente mais tarde.");
+
+                //  Limpamos s grip principal
+                Global.GlobalGridPrincipal.Children.Clear();
+                //  Adicionamos um painel novo a grid
+                Global.GlobalGridPrincipal.Children.Add(Global.UltimoUserControl);
+                //  Mostramos novamente o botão de update
+                Global.AtualizacaoButton.Visibility = Visibility.Visible;
+
+                //  Isso é só uma verificação pra saber se devemos ou não mostrar o botão de engrenagem
+                //  Ele é necessário caso não já não estejamos na tela de configuração
+                //  Pois iremos voltar a ela, e não faz sentido termos o botão de ir pra config, se já estamos lá .-.
+                if (!Global.UltimoUserControl.ToString().Contains("UserControlConfig"))
+                {
+                    Global.EngrenagemButton.Visibility = Visibility.Visible;
+                }
             }
         }
 
@@ -188,6 +218,41 @@ namespace TiltaMacro2.UserControls
         {
             Global.Notificar("Notas de atualização", "#73C2FB");
             System.Diagnostics.Process.Start(LinkNote);
+        }
+
+        // Função para o tempo limite do update
+        private void TempoLimiteDoUpdate()
+        {
+            // Se demorar 15 segundos
+            var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(15) };
+            timer.Tick += delegate
+            {
+                // Veridicamos o processo de update
+                if (ProcessoVerificaUpdateCompleto) return;
+                // Caso verdadeiro podemos retornar
+
+                // Do contrário seguimos e já
+                // A visamos do limite, e abrimos a janela inicial do programa
+
+                Global.Notificar("Tempo limite de requisição excedida.", "#F44242");
+                timer.Stop();
+
+                //  Limpamos s grip principal
+                Global.GlobalGridPrincipal.Children.Clear();
+                //  Adicionamos um painel novo a grid
+                Global.GlobalGridPrincipal.Children.Add(Global.UltimoUserControl);
+                //  Mostramos novamente o botão de update
+                Global.AtualizacaoButton.Visibility = Visibility.Visible;
+
+                //  Isso é só uma verificação pra saber se devemos ou não mostrar o botão de engrenagem
+                //  Ele é necessário caso não já não estejamos na tela de configuração
+                //  Pois iremos voltar a ela, e não faz sentido termos o botão de ir pra config, se já estamos lá .-.
+                if (!Global.UltimoUserControl.ToString().Contains("UserControlConfig"))
+                {
+                    Global.EngrenagemButton.Visibility = Visibility.Visible;
+                }
+            };
+            timer.Start();
         }
     }
 }
